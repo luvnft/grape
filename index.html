@@ -53,11 +53,13 @@
       stroke-width: 1px;
       stroke-dasharray : 5px;
     }
+    /* Fix pie chart wrapper - removed absolute positioning */
     .chart-wrapper {
       max-width: 1140px;
       width: 100%;
-      height: 100%;
-      position: absolute;
+      position: relative;
+      margin: 2rem auto;
+      min-height: 350px;
     }
     .chart-graph {
       transform: translate(50%, 30%);
@@ -103,8 +105,9 @@
     .grape, .grape-access, .hackthon {
       padding: 60px 0;
     }
+    /* FAQ section - dark background matching cards */
     .faq-section {
-      background-color: #1a1a2e;
+      background-color: #0f0f1a;
       padding: 60px 0;
       color: white;
     }
@@ -117,6 +120,7 @@
       text-align: center;
       margin-bottom: 40px;
       font-size: 2rem;
+      color: #E8B86B; /* gold title */
     }
     .faq-item {
       margin-bottom: 20px;
@@ -130,11 +134,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: #E8B86B; /* gold question text */
     }
     .faq-answer {
       margin-top: 10px;
       display: none;
       line-height: 1.6;
+      color: #f0f0f0;
     }
     .faq-answer.active {
       display: block;
@@ -142,6 +148,7 @@
     .faq-toggle {
       font-size: 1.5rem;
       transition: transform 0.3s ease;
+      color: #D67A5C; /* pink plus sign */
     }
     .faq-toggle.active {
       transform: rotate(45deg);
@@ -240,31 +247,54 @@
       text-align: center;
     }
     /* Bio photo styling */
-.bio-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px; /* matches .hackathon-box border-radius */
-  display: block;
-  position: relative;
-  z-index: 2;
-}
-
-/* Ensure the hackathon-box has a defined size and centers the image */
-.hackathon-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* keeps image within rounded corners */
-  background-color: #13151c; /* fallback */
-}
-
-/* Responsive adjustments for mobile */
-@media screen and (max-width: 767px) {
-  .bio-photo {
-    object-position: center 30%; /* adjust if needed */
-  }
-}
+    .bio-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+    .hackathon-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #13151c;
+      width: 180px;
+      height: 180px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      margin-right: 30px;
+    }
+    @media screen and (max-width: 768px) {
+      .container.center {
+        flex-direction: column;
+      }
+      .hackathon-box {
+        margin-bottom: 20px;
+        margin-right: 0;
+      }
+      .bio-photo {
+        object-position: center 30%;
+      }
+    }
+    /* Hero heading colors */
+    .hero-communities {
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      -webkit-text-fill-color: #E83D8C !important;
+      color: #E83D8C !important;
+    }
+    .hero-decentralized {
+      color: #E8B86B !important;
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      -webkit-text-fill-color: #E8B86B !important;
+    }
   </style>
 </head>
 <body class="body">
@@ -272,10 +302,10 @@
     <div class="container nav w-container">
       <a href="#" class="w-nav-brand"><img src="images/candy_concepts_logo.svg" loading="lazy" alt="Candy Concepts logo" class="logo"></a>
       <nav role="navigation" class="nav-menu w-nav-menu">
-        <a href="https://live.luvnft.com" class="nav-link w-nav-link">Instagram</a>
-        <a href="https://slot.luvnft.com" class="nav-link w-nav-link">TikTok</a>
+        <a href="#" class="nav-link w-nav-link">Instagram</a>
+        <a href="#" class="nav-link w-nav-link">TikTok</a>
         <div class="launch-wrapper">
-          <a href="https://app.luvnft.com" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
+          <a href="#" class="nav-button w-nav-link">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
         </div>
       </nav>
       <div class="menu-button w-nav-button">
@@ -284,7 +314,7 @@
     </div>
   </div>
   
-  <!-- Hero Video Section (preserved original structure) -->
+  <!-- Hero Video Section -->
   <section class="hero-video-container">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="videos/grape_bgvid-poster-00001.jpg">
       <source src="videos/grape_bgvid-transcode.mp4" type="video/mp4">
@@ -293,9 +323,9 @@
     <div class="hero-content">
       <div class="container hero">
         <div class="hero-div">
-          <h1 class="hero-heading"><span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a04" style="opacity:0" class="hero-connecting"></span> <span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a0a" style="opacity:0" class="hero-communities">CANDY</span> <span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a07" style="opacity:0" class="hero-decentralized">CONCEPTS.CO</span></h1>
-          <h2 data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a0c" style="opacity:0" class="secondary-heading">Turning water to wine by transforming business basics into breakthrough results. Enter the experience.</h2>
-          <a href="https://app.luvnft.com" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
+          <h1 class="hero-heading"><span style="opacity:0" class="hero-connecting"></span> <span style="opacity:0" class="hero-communities">CANDY</span> <span style="opacity:0" class="hero-decentralized">CONCEPTS.CO</span></h1>
+          <h2 style="opacity:0" class="secondary-heading">Turning water to wine by transforming business basics into breakthrough results. Enter the experience.</h2>
+          <a href="#" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
         </div>
       </div>
     </div>
@@ -304,9 +334,9 @@
   <!-- Strategy Section -->
   <div class="section grape">
     <div class="container center">
-      <div data-w-id="875b3a81-c81d-7d96-b291-6acf6643293a" style="opacity:0" class="bg-circle-gradient-1"></div>
+      <div style="opacity:0" class="bg-circle-gradient-1"></div>
       <div class="community-grid">
-        <div data-w-id="41d39d7b-f4fa-ac5a-1f81-2d84b6df34ae" style="opacity:0" class="grape-community-container">
+        <div style="opacity:0" class="grape-community-container">
           <h2 class="community-heading">Strategy is more than systems. It’s perception, leadership, experience, and execution working in alignment.</h2>
           <div class="grape-community-text">Candy Concepts was created for businesses ready to refine operations, elevate client experience, strengthen leadership, and create sustainable growth through intentional strategy. We specialize in identifying operational blind spots, refining internal systems, and transforming the everyday experience of both teams and clients.</div>
         </div>
@@ -319,60 +349,51 @@
     <div class="container center">
       <h2 class="mb-20 grape-access-header">Ready to elevate your business infrastructure?</h2>
       <div class="grape-community-text">Let’s build something intentional.</div>
-      <a href="https://app.luvnft.com" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
-
+      <a href="#" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
     </div>
   </div>
   
-<!-- Bio Section with Photo -->
-<div class="section hackthon">
-  <div class="container center">
-    <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb12f" style="opacity:0" class="hackathon-box">
-      <!-- Bio Photo -->
-      <img src="/images/dr_candy_terry.PNG" loading="lazy"
-           alt="Dr. Candy Terry – Business Advisor & Strategist" 
-           class="bio-photo">
-      <div data-w-id="b58dc1e8-c5f6-d23f-807c-f273b32eb261" style="opacity:0" class="bg-circle-gradient-3"></div>
-    </div>
-    <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb130" style="opacity:0" class="hackathon-header">
-      <h2 class="mb-20">Candy Terry, Ph.D. – Business Advisor | Strategist</h2>
-      <div class="hackathon-text">With over a decade of experience in operations, leadership development, business systems, and organizational strategy, Candy Terry brings a refined, relationship-driven approach to boutique consulting. Known for identifying inefficiencies, strengthening leadership dynamics, and creating elevated operational experiences, her work focuses on sustainable transformation rooted in clarity, structure, and intentional growth.</div>
-      <div data-w-id="ba0f7c45-392f-87a8-5b55-6eafe33fd236" style="opacity:0" class="bg-circle-gradient-2"></div>
+  <!-- Bio Section with Photo -->
+  <div class="section hackthon">
+    <div class="container center">
+      <div style="opacity:0" class="hackathon-box">
+        <img src="/images/dr_candy_terry.PNG" loading="lazy" alt="Dr. Candy Terry – Business Advisor & Strategist" class="bio-photo">
+        <div style="opacity:0" class="bg-circle-gradient-3"></div>
+      </div>
+      <div style="opacity:0" class="hackathon-header">
+        <h2 class="mb-20">Candy Terry, Ph.D. – Business Advisor | Strategist</h2>
+        <div class="hackathon-text">With over a decade of experience in operations, leadership development, business systems, and organizational strategy, Candy Terry brings a refined, relationship-driven approach to boutique consulting. Known for identifying inefficiencies, strengthening leadership dynamics, and creating elevated operational experiences, her work focuses on sustainable transformation rooted in clarity, structure, and intentional growth.</div>
+        <div style="opacity:0" class="bg-circle-gradient-2"></div>
+      </div>
     </div>
   </div>
-</div>
   
-  <!-- Features Section (Three Pillars) – Replaces the original crypto cards -->
+  <!-- Features Section (Three Pillars) -->
   <section id="features" class="section features">
-    <h2 data-w-id="d8074669-33a1-aa9d-5c38-4c53efdbf36c" style="opacity:0" class="mb-220 text-center">Refined strategy. Real transformation.</h2>
+    <h2 style="opacity:0" class="mb-220 text-center">Refined strategy. Real transformation.</h2>
     <div class="container">
       <div class="w-layout-grid features-grid">
-        <!-- Card 1: Operational Intelligence -->
-        <div id="w-node-a6af4ef7-3ac0-1a54-7bf1-9b820b147d04-d9f06085" data-w-id="a6af4ef7-3ac0-1a54-7bf1-9b820b147d04" style="opacity:0" class="features-card">
+        <div style="opacity:0" class="features-card">
           <h3 class="feature-title">Operational Intelligence + Brand Experience</h3>
-          <ul role="list" class="features-card-list w-list-unstyled">
+          <ul class="features-card-list">
             <li class="mb-20">Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
             <li>No generic consulting templates</li>
             <li>No disconnected systems or siloed strategies</li>
             <li>A unified framework that aligns operations with brand identity</li>
           </ul>
         </div>
-        
-        <!-- Card 2: Rejecting Generic Consulting -->
-        <div id="w-node-_442d2486-df89-da3e-43eb-28167c807c66-d9f06085" data-w-id="442d2486-df89-da3e-43eb-28167c807c66" style="opacity:0" class="features-card">
+        <div style="opacity:0" class="features-card">
           <h3 class="feature-title">Rejecting the Generic Consulting Model</h3>
-          <ul role="list" class="features-card-list w-list-unstyled">
+          <ul class="features-card-list">
             <li class="mb-20">No recycled systems. No one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context.</li>
             <li>No pre-packaged "solutions" copied from other industries</li>
             <li>No assumptions — only discovery, analysis, and custom design</li>
             <li>Every system is built around your team, your culture, and your goals</li>
           </ul>
         </div>
-        
-        <!-- Card 3: Discretion, Precision & Intention -->
-        <div id="w-node-_621cd584-e952-8e81-1e12-f71993c45c0e-d9f06085" data-w-id="621cd584-e952-8e81-1e12-f71993c45c0e" style="opacity:0" class="features-card">
+        <div style="opacity:0" class="features-card">
           <h3 class="feature-title">Discretion, Precision &amp; Intention</h3>
-          <ul role="list" class="features-card-list w-list-unstyled">
+          <ul class="features-card-list">
             <li class="mb-20">Every business is approached with discretion, precision, and intention because lasting transformation requires more than a template; it requires a partnership.</li>
             <li>Strict confidentiality and white‑glove collaboration</li>
             <li>Surgical precision in identifying inefficiencies and opportunities</li>
@@ -383,55 +404,54 @@
     </div>
   </section>
   
-  <!-- Tokenomics / Four Pillars + Pie Chart (original scroll‑triggered D3 chart) -->
-  <section id="tokenomics" data-w-id="aa68594d-0cc4-8050-d59c-4c45935c5826" style="opacity:0" class="section tokenomics">
+  <!-- Four Pillars + Pie Chart -->
+  <section id="tokenomics" style="opacity:0" class="section tokenomics">
     <h2 class="mb-40 text-center">Beyond Consulting: The Four Pillars of Operational Excellence</h2>
     <div class="container roadmap">
       <div style="text-align: center;">
-        <a href="https://pump.fun/coin/7iNzESXq8Ln3wyww5hgLM1G2NKKkmzczk1bv2tARpump" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
+        <a href="#" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
       </div>
       <div class="chart-wrapper"></div>
     </div>
   </section>
   
-  <!-- FAQ Section (unchanged from original) -->
+  <!-- FAQ Section (updated colors) -->
   <section class="faq-section">
     <div class="faq-container">
-      <h2 class="faq-title">❓ FREQUENTLY ASKED QUESTIONS</h2>
+      <h2 class="faq-title">FAQ</h2>
       <div class="faq-list">
         <div class="faq-item">
-<div class="faq-item">
-    <div class="faq-question">How does Candy Concepts approach consulting differently from a generic business coach?<span class="faq-toggle">+</span></div>
-    <div class="faq-answer">We don't use recycled templates or one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context. We start with discovery and analysis before any custom design, building systems around your team, your culture, and your goals — not the other way around.</div>
-</div>
-<div class="faq-item">
-    <div class="faq-question">How do you help business owners who feel overwhelmed by daily operations and can't find time for strategic leadership?<span class="faq-toggle">+</span></div>
-    <div class="faq-answer">This is the most common frustration we hear owners drowning in the business while the business stalls without strategic direction[reference:2]. We help you step back by first identifying operational leaks, then implementing weekly leadership rhythms and accountability structures that create breathing room without sacrificing momentum.</div>
-</div>
-<div class="faq-item">
-    <div class="faq-question">Do you offer ongoing advisory or just project-based consulting?<span class="faq-toggle">+</span></div>
-    <div class="faq-answer">We offer both. Many clients start with a focused project like optimizing scheduling, refining patient journey, or building a TCO role — then move to a monthly advisory retainer. This gives you predictable cost and ongoing strategic guidance without long-term lock-in. Pricing is tailored to scope, complexity, and the value delivered.</div>
-</div>
-<div class="faq-item">
-    <div class="faq-question">Why are my surgery/hygiene schedules half empty some days even when I feel busy?<span class="faq-toggle">+</span></div>
-    <div class="faq-answer">This is a silent profit killer. Even growing practices leak capacity through unused half-days, vague diary rules, and lack of daily yield targets[reference:3]. We analyze your scheduling patterns, handover protocols, and team accountability to fill those gaps without adding unnecessary overhead.</div>
-</div>
-<div class="faq-item">
-    <div class="faq-question">We have a Treatment Coordinator (TCO) but we don't really know what they should actually be doing. Is that common?<span class="faq-toggle">+</span></div>
-    <div class="faq-answer">Extremely common. A title alone isn't enough. Most practices have a TCO but no designed patient journey, KPIs, or clear handover process[reference:4]. We help define the role with clear expectations, metrics, and clinical integration — turning a vague position into a revenue-driving asset.</div>
-</div>
-<div class="faq-item">
-    <div class="faq-question">How do I know if I need to hire another team member versus fixing my existing systems?<span class="faq-toggle">+</span></div>
-    <div class="faq-answer">Many offices are overstaffed the real issue is lack of systems and priorities[reference:5]. Before hiring, you need clear job descriptions, training, and daily goals. The industry standard is to keep team costs at 25–27% of monthly collections[reference:6]. We audit first, then recommend whether to add headcount or restructure.</div>
-</div>
-<div class="faq-item">
-    <div class="faq-question">What's my practice really worth and is it even saleable?<span class="faq-toggle">+</span></div>
-    <div class="faq-answer">Nearly every owner asks this quietly[reference:7]. Value isn't just about EBITDA and multiples — it's about sustainability, documented systems, and buyer appeal. We help you understand current valuation and create a roadmap to increase it, whether you plan to sell in two years or ten.</div>
-</div>
-<div class="faq-item">
-    <div class="faq-question">How do I balance growth with team wellbeing and avoiding burnout?<span class="faq-toggle">+</span></div>
-    <div class="faq-answer">Behind every business decision is a human who needs sleep, energy and purpose to keep going[reference:8]. Growth that creates more strain isn't sustainable. We focus on systems that reduce friction for your team while scaling — better processes, clearer communications, and intentional pacing so you don't sacrifice your health for revenue.</div>
-</div>
+          <div class="faq-question">How does Candy Concepts approach consulting differently from a generic business coach?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">We don't use recycled templates or one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context. We start with discovery and analysis before any custom design, building systems around your team, your culture, and your goals — not the other way around.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do you help business owners who feel overwhelmed by daily operations and can't find time for strategic leadership?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">This is the most common frustration we hear — owners drowning in the business while the business stalls without strategic direction. We help you step back by first identifying operational leaks, then implementing weekly leadership rhythms and accountability structures that create breathing room without sacrificing momentum.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Do you offer ongoing advisory or just project-based consulting?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">We offer both. Many clients start with a focused project — like optimizing scheduling, refining patient journey, or building a TCO role — then move to a monthly advisory retainer. This gives you predictable cost and ongoing strategic guidance without long-term lock-in. Pricing is tailored to scope, complexity, and the value delivered.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Why are my surgery/hygiene schedules half empty some days even when I feel busy?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">This is a silent profit killer. Even growing practices leak capacity through unused half-days, vague diary rules, and lack of daily yield targets. We analyze your scheduling patterns, handover protocols, and team accountability to fill those gaps without adding unnecessary overhead.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">We have a Treatment Coordinator (TCO) — but we don't really know what they should actually be doing. Is that common?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Extremely common. A title alone isn't enough. Most practices have a TCO but no designed patient journey, KPIs, or clear handover process. We help define the role with clear expectations, metrics, and clinical integration — turning a vague position into a revenue-driving asset.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I know if I need to hire another team member versus fixing my existing systems?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Many offices are overstaffed — the real issue is lack of systems and priorities. Before hiring, you need clear job descriptions, training, and daily goals. The industry standard is to keep team costs at 25–27% of monthly collections. We audit first, then recommend whether to add headcount or restructure.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What's my practice really worth — and is it even saleable?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Nearly every owner asks this quietly. Value isn't just about EBITDA and multiples — it's about sustainability, documented systems, and buyer appeal. We help you understand current valuation and create a roadmap to increase it, whether you plan to sell in two years or ten.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I balance growth with team wellbeing and avoiding burnout?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">Behind every business decision is a human who needs sleep, energy and purpose to keep going. Growth that creates more strain isn't sustainable. We focus on systems that reduce friction for your team while scaling — better processes, clearer communications, and intentional pacing so you don't sacrifice your health for revenue.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -439,130 +459,88 @@
   <div class="footer-section">
     <div class="container footer">
       <div class="leftgrid">
-        <div class="text-block"><span class="great-ape">CandyConcepts.co</span><br>Atlanta, Georgia <br><span class="copyright">844-8-CANDYCO<br>drcandy@candyconcepts.co</span><br></div>
+        <div class="text-block"><span class="great-ape">CandyConcepts.co</span><br>Atlanta, Georgia <br><span class="copyright">844-8-CANDYCO<br>drcandy@candyconcepts.co</span></div>
       </div>
-      <div id="w-node-bb247140-920a-bbc0-09be-352db5d2000b-d9f06085" class="right-grid">
-        <a href="https://app.luvnft.com" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
+      <div class="right-grid">
+        <a href="#" class="nav-button w-nav-link">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
       </div>
     </div>
   </div>
   
-  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60b0230e5fa0847b66f06084" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60b0230e5fa0847b66f06084" type="text/javascript"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   
-<script>
-  // Consulting data – 4 pillars
-  let dataset = [35, 25, 25, 15];
-  let consultingLabels = [
-    'Operational Strategy 35%',
-    'Leadership Development 25%',
-    'Client Experience & Culture 25%',
-    'Growth & Performance Strategy 15%'
-  ];
-  // Brand colors (teal, navy, gold, coral)
-  let colors = ['#2C5F6B', '#1E3A5F', '#E8B86B', '#D67A5C'];
-  
-  function drawPieChart() {
-    let wrapper = document.querySelector('.chart-wrapper');
-    if (!wrapper) return;
+  <script>
+    let dataset = [35, 25, 25, 15];
+    let consultingLabels = ['Operational 35%', 'Leadership 25%', 'Client Exp. 25%', 'Growth 15%'];
+    let colors = ['#2C5F6B', '#1E3A5F', '#E8B86B', '#D67A5C'];
     
-    // Get wrapper size
-    let width = wrapper.clientWidth;
-    let height = 400; // fixed minimum height for mobile
-    
-    if (width === 0) width = 300;
-    
-    // Detect mobile (screen width <= 768)
-    let isMobile = window.innerWidth <= 768;
-    
-    // Adjust radius and font size for mobile
-    let radius;
-    let labelFontSize;
-    let labelOffsetMultiplier;
-    
-    if (isMobile) {
-      radius = Math.min(width * 0.28, 120); // smaller radius on mobile
-      labelFontSize = '9px';
-      labelOffsetMultiplier = 1.0; // pull labels closer to avoid overflow
-    } else {
-      radius = Math.min(width * 0.3, 180);
-      labelFontSize = '12px';
-      labelOffsetMultiplier = 1.2;
+    function drawPieChart() {
+      let wrapper = document.querySelector('.chart-wrapper');
+      if (!wrapper) return;
+      wrapper.style.overflow = 'visible';
+      let width = wrapper.clientWidth;
+      if (width === 0) width = 300;
+      let isMobile = window.innerWidth <= 768;
+      let radius, labelFontSize, labelOffsetMultiplier;
+      if (isMobile) {
+        radius = Math.min(width * 0.22, 85);
+        labelFontSize = '7px';
+        labelOffsetMultiplier = 0.85;
+      } else {
+        radius = Math.min(width * 0.3, 180);
+        labelFontSize = '11px';
+        labelOffsetMultiplier = 1.1;
+      }
+      let height = radius * 2.5;
+      d3.select('.chart-wrapper').select('svg').remove();
+      let svg = d3.select('.chart-wrapper')
+        .append('svg')
+        .attr('width', '100%')
+        .attr('height', height + 'px')
+        .attr('viewBox', `0 0 ${width} ${height}`)
+        .style('overflow', 'visible')
+        .append('g')
+        .attr('transform', `translate(${width/2}, ${height/2})`);
+      let arc = d3.svg.arc().outerRadius(radius).innerRadius(radius * 0.5);
+      let outerArc = d3.svg.arc().innerRadius(radius * 0.8).outerRadius(radius * 0.8);
+      let pie = d3.layout.pie().value(d => d);
+      let piedata = pie(dataset);
+      let slices = svg.selectAll('.slice').data(piedata).enter().append('g').attr('class', 'slice');
+      slices.append('path')
+        .attr('d', arc)
+        .attr('fill', (d, i) => colors[i])
+        .attr('stroke', 'white')
+        .attr('stroke-width', '1')
+        .style('opacity', 0)
+        .transition().duration(400).style('opacity', 1);
+      let midAngle = d => d.startAngle + (d.endAngle - d.startAngle) / 2;
+      slices.append('text')
+        .attr('transform', d => {
+          let pos = outerArc.centroid(d);
+          let angle = midAngle(d);
+          let outward = radius * labelOffsetMultiplier;
+          pos[0] = outward * (angle < Math.PI ? 1 : -1);
+          if (isMobile && Math.abs(pos[1]) < 10) pos[1] += (angle < Math.PI ? 5 : -5);
+          return 'translate(' + pos + ')';
+        })
+        .style('text-anchor', d => midAngle(d) < Math.PI ? 'start' : 'end')
+        .text((d, i) => consultingLabels[i])
+        .style('fill', '#FFFFFF')
+        .style('font-size', labelFontSize)
+        .style('font-weight', '600')
+        .style('text-shadow', '0 0 2px black')
+        .style('opacity', 0)
+        .transition().delay(300).duration(400).style('opacity', 1);
     }
-    
-    // Clear previous chart
-    d3.select('.chart-wrapper').select('svg').remove();
-    
-    let svg = d3.select('.chart-wrapper')
-      .append('svg')
-      .attr('width', '100%')
-      .attr('height', height + 'px')
-      .attr('viewBox', `0 0 ${width} ${height}`)
-      .append('g')
-      .attr('transform', `translate(${width/2}, ${height/2})`);
-    
-    let arc = d3.svg.arc()
-      .outerRadius(radius)
-      .innerRadius(radius * 0.55); // slightly thinner donut on mobile
-    
-    let outerArc = d3.svg.arc()
-      .innerRadius(radius * 0.9)
-      .outerRadius(radius * 0.9);
-    
-    let pie = d3.layout.pie().value(d => d);
-    let piedata = pie(dataset);
-    
-    let slices = svg.selectAll('.slice')
-      .data(piedata)
-      .enter().append('g')
-      .attr('class', 'slice');
-    
-    // Draw slices
-    slices.append('path')
-      .attr('d', arc)
-      .attr('fill', (d, i) => colors[i])
-      .attr('stroke', 'white')
-      .attr('stroke-width', '1.5')
-      .style('opacity', 0)
-      .transition()
-      .duration(500)
-      .style('opacity', 1);
-    
-    let midAngle = d => d.startAngle + (d.endAngle - d.startAngle) / 2;
-    
-    // Labels – adjusted position for mobile
-    slices.append('text')
-      .attr('transform', d => {
-        let pos = outerArc.centroid(d);
-        let angle = midAngle(d);
-        let outward = radius * labelOffsetMultiplier;
-        pos[0] = outward * (angle < Math.PI ? 1 : -1);
-        // Add small vertical offset to avoid overlapping on small screens
-        if (isMobile && Math.abs(pos[1]) < 15) pos[1] += (angle < Math.PI ? 8 : -8);
-        return 'translate(' + pos + ')';
-      })
-      .style('text-anchor', d => midAngle(d) < Math.PI ? 'start' : 'end')
-      .text((d, i) => consultingLabels[i])
-      .style('fill', '#FFFFFF')
-      .style('font-size', labelFontSize)
-      .style('font-weight', '600')
-      .style('text-shadow', '0 1px 2px rgba(0,0,0,0.3)')
-      .style('opacity', 0)
-      .transition()
-      .delay(300)
-      .duration(500)
-      .style('opacity', 1);
-  }
-  
-  // Draw immediately and on resize
-  $(document).ready(function() {
-    drawPieChart();
-    let resizeTimer;
-    $(window).on('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(drawPieChart, 150);
+    $(document).ready(function() {
+      drawPieChart();
+      let resizeTimer;
+      $(window).on('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(drawPieChart, 150);
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>

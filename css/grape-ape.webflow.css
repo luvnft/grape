@@ -205,6 +205,14 @@
   -webkit-text-fill-color: #E83D8C !important;
   color: #E83D8C !important;
   }
+  /* Make CONCEPTS.CO gold */
+  .hero-decentralized {
+  color: #E8B86B !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: #E8B86B !important;
+  }
   .bg-circle-gradient-1 {
     background-image: linear-gradient(180deg, #2C5F6B, #1E3A5F, #E8B86B, #D67A5C);
     filter: blur(25px);
