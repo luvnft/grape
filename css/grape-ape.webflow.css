@@ -702,61 +702,86 @@
     align-self: center;
     justify-self: end;
   }
-  /* Font imports */
-  @font-face {
-    font-family: 'Gilroy';
-    src: url('../fonts/Gilroy-Light.otf') format('opentype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Gilroy';
-    src: url('../fonts/Marcellus-Regular.ttf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Materialiconsoutlined';
-    src: url('../fonts/MaterialIconsOutlined-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Materialiconssharp';
-    src: url('../fonts/MaterialIconsSharp-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Materialiconsround';
-    src: url('../fonts/MaterialIconsRound-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Fa-Reg';
-    src: url('../fonts/fa-regular-400.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Fa-Brands';
-    src: url('../fonts/fa-brands-400.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Fa-Solid';
-    src: url('../fonts/fa-solid-900.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
+/* Font imports */
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../fonts/Gilroy-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../fonts/Gilroy-ExtraBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Marcellus';
+  src: url('../fonts/Marcellus-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Materialiconsoutlined';
+  src: url('../fonts/MaterialIconsOutlined-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Materialiconssharp';
+  src: url('../fonts/MaterialIconsSharp-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Materialiconsround';
+  src: url('../fonts/MaterialIconsRound-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fa-Reg';
+  src: url('../fonts/fa-regular-400.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fa-Brands';
+  src: url('../fonts/fa-brands-400.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fa-Solid';
+  src: url('../fonts/fa-solid-900.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply Marcellus to all h1, h2, h3 headings */
+h1, h2, h3,
+.hero-heading,
+.community-heading,
+.hackathon-header h2,
+.feature-title,
+.tokenomics h2,
+.faq-title,
+.grape-access-header {
+  font-family: 'Marcellus', 'Georgia', serif !important;
+  font-weight: 400 !important;
+}
+
+/* Keep Gilroy for body text, buttons, etc. */
+body, p, li, .button, .nav-link, .grape-community-text, .hackathon-text {
+  font-family: 'Gilroy', system-ui, sans-serif !important;
+}
 </style>
