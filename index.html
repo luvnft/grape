@@ -356,9 +356,8 @@
     <h2 class="mb-40 text-center">Beyond Consulting: The Four Pillars of Operational Excellence</h2>
     <div class="container roadmap">
       <div style="text-align: center;">
-        <a href="https://pump.fun/coin/7iNzESXq8Ln3wyww5hgLM1G2NKKkmzczk1bv2tARpump" class="button mt-40 w-button">ENTER THE EXPERIENCE – BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
+        <a href="https://pump.fun/coin/7iNzESXq8Ln3wyww5hgLM1G2NKKkmzczk1bv2tARpump" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
       </div>
-      <h3 class="total-supply">We integrate operational strategy, leadership development, client experience, and growth performance into a cohesive advisory framework that refines workflows, strengthens teams, elevates culture, and drives sustainable scalability without generic templates or one-size-fits-all solutions.</h3>
       <div class="chart-wrapper"></div>
     </div>
   </section>
@@ -420,100 +419,121 @@
   <script src="js/webflow.js" type="text/javascript"></script>
   
   <script>
-  let dataset = [35, 25, 25, 15];
-  let consultingLabels = [
-    'Operational Strategy 35%',
-    'Leadership Development 25%',
-    'Client Experience & Culture 25%',
-    'Growth & Performance Strategy 15%'
-  ];
-  let colors = ['#2C5F6B', '#1E3A5F', '#E8B86B', '#D67A5C'];
-
-  function drawChart() {
-    let wrapper = document.querySelector('.chart-wrapper');
-    if (!wrapper) return;
-
-    // Force a fallback if offset dimensions are zero
-    let width = wrapper.offsetWidth;
-    let height = wrapper.offsetHeight;
-    if (width === 0) width = 600;
-    if (height === 0) height = 450;
-
-    let radius = Math.min(width, height) * 0.35; // tunes the circle size
-    radius = Math.min(radius, 200);
-
-    d3.select('.chart-wrapper').select('svg').remove();
-
-    let svg = d3.select('.chart-wrapper')
-      .append('svg')
-      .attr('width', '100%')
-      .attr('height', '100%')
-      .attr('viewBox', `0 0 ${width} ${height}`)
-      .append('g')
-      .attr('transform', `translate(${width/2}, ${height/2})`);
-
-    let arc = d3.svg.arc()
-      .outerRadius(radius)
-      .innerRadius(radius * 0.6);   // donut style
-
-    let outerArc = d3.svg.arc()
-      .innerRadius(radius * 1.0)
-      .outerRadius(radius * 1.0);
-
-    let pie = d3.layout.pie().value(function(d) { return d; });
-    let piedata = pie(dataset);
-
-    let slices = svg.selectAll('.slice')
-      .data(piedata)
-      .enter().append('g')
-      .attr('class', 'slice');
-
-    slices.append('path')
-      .attr('d', arc)
-      .attr('fill', function(d, i) { return colors[i]; })
-      .attr('stroke', 'white')
-      .attr('stroke-width', '2')
-      .style('opacity', 0)
-      .transition()
-      .delay(function(d,i) { return i * 150; })
-      .duration(1000)
-      .style('opacity', 1);
-
-    let midAngle = function(d) {
-      return d.startAngle + (d.endAngle - d.startAngle) / 2;
+    // Updated dataset for consulting focus areas (matching original D3 pie chart)
+    let dataset = [35, 25, 25, 15];
+    let consultingLabels = [
+      'Operational Strategy 35%',
+      'Leadership Development 25%',
+      'Client Experience & Culture 25%',
+      'Growth & Performance Strategy 15%'
+    ];
+    // Candy Concepts brand palette (teal, navy, gold, coral)
+    let colors = ['#2C5F6B', '#1E3A5F', '#E8B86B', '#D67A5C'];
+    
+    let draw = function() {
+      let width = document.querySelector('.chart-wrapper').offsetWidth;
+      let height = document.querySelector('.chart-wrapper').offsetHeight;
+      let minOfWH = Math.min(width, height) / 2;
+      let radius = minOfWH > 200 ? 200 : minOfWH;
+      
+      d3.select('.chart-wrapper').select('svg').remove();
+      
+      let svg = d3.select('.chart-wrapper')
+        .append('svg')
+        .attr('width', '100%')
+        .attr('height', '100%')
+        .attr('class', 'pieChart')
+        .append('g')
+        .attr('class', 'chart-graph');
+      
+      let arc = d3.svg.arc()
+        .outerRadius(radius * 0.65)
+        .innerRadius(radius * 0.45);
+      
+      let outerArc = d3.svg.arc()
+        .innerRadius(radius * 0.85)
+        .outerRadius(radius * 0.85);
+      
+      let pie = d3.layout.pie().value(function(d) { return d; });
+      
+      let defs = svg.append('defs');
+      let filter = defs.append('filter').attr('id', 'dropshadow');
+      filter.append('feGaussianBlur').attr('in', 'SourceAlpha').attr('stdDeviation', 7).attr('result', 'blur');
+      filter.append('feOffset').attr('in', 'blur').attr('dx', 0).attr('dy', 0).attr('result', 'offsetBlur');
+      let feMerge = filter.append('feMerge');
+      feMerge.append('feMergeNode').attr('in', 'offsetBlur');
+      feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+      
+      let slice = svg.selectAll('.slice')
+        .data(pie(dataset))
+        .enter().append('g')
+        .attr('class', 'slice');
+      
+      slice.append('path')
+        .attr('d', arc)
+        .attr('fill', function(d, i) { return colors[i]; })
+        .attr('filter', 'url(#dropshadow)')
+        .style('opacity', 0)
+        .transition()
+        .delay(function(d, i) { return i * 150 + 200; })
+        .duration(2000)
+        .style('opacity', 1);
+      
+      let midAngle = function(d) {
+        return d.startAngle + (d.endAngle - d.startAngle) / 2;
+      };
+      
+      slice.append('text')
+        .attr('transform', function(d) {
+          let pos = outerArc.centroid(d);
+          pos[0] = radius * 0.95 * (midAngle(d) < Math.PI ? 1 : -1);
+          return 'translate(' + pos + ')';
+        })
+        .style('text-anchor', function(d) {
+          return midAngle(d) < Math.PI ? 'start' : 'end';
+        })
+        .text(function(d, i) { return consultingLabels[i]; })
+        .style('fill', function(d, i) { return colors[i]; })
+        .style('font-size', '12px')
+        .style('font-weight', '500')
+        .style('opacity', 0)
+        .transition()
+        .delay(2000)
+        .duration(1000)
+        .style('opacity', 1);
     };
-
-    slices.append('text')
-      .attr('transform', function(d) {
-        let pos = outerArc.centroid(d);
-        pos[0] = radius * 1.2 * (midAngle(d) < Math.PI ? 1 : -1);
-        return 'translate(' + pos + ')';
-      })
-      .style('text-anchor', function(d) {
-        return midAngle(d) < Math.PI ? 'start' : 'end';
-      })
-      .text(function(d,i) { return consultingLabels[i]; })
-      .style('fill', function(d,i) { return colors[i]; })
-      .style('font-size', '12px')
-      .style('font-weight', '500')
-      .style('opacity', 0)
-      .transition()
-      .delay(1200)
-      .duration(800)
-      .style('opacity', 1);
-  }
-
-  $(document).ready(function() {
-    // Draw immediately (no scroll dependency) with a small delay to ensure DOM ready
-    setTimeout(drawChart, 300);
-
-    // Also redraw on window resize to keep proportions
-    let resizeTimer;
-    $(window).on('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(drawChart, 200);
+    
+    $(document).ready(function() {
+      $(window).scroll(function() {
+        let chartWrapper = $('.chart-wrapper');
+        if (chartWrapper.length && $(window).scrollTop() >= chartWrapper.offset().top - ($(window).height() / 2)) {
+          $(window).off('scroll');
+          draw();
+        }
+      });
+      if ($('.chart-wrapper').length && $('.chart-wrapper').offset().top < $(window).height()) {
+        draw();
+      }
+      
+      $('.faq-question').click(function() {
+        const answer = $(this).next('.faq-answer');
+        const toggle = $(this).find('.faq-toggle');
+        $('.faq-answer').not(answer).removeClass('active');
+        $('.faq-toggle').not(toggle).removeClass('active');
+        answer.toggleClass('active');
+        toggle.toggleClass('active');
+      });
     });
-  });
-</script>
+    
+    window.addEventListener('load', function() {
+      const video = document.querySelector('.hero-video');
+      if (video) {
+        video.muted = true;
+        video.play().catch(function(error) {
+          console.log("Video autoplay failed: ", error);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
