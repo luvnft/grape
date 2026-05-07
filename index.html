@@ -288,7 +288,40 @@
       background-clip: unset !important;
       -webkit-text-fill-color: #C17887 !important;
     }
-    /* preserve all original Webflow classes below (not shown fully but kept in output) */
+    /* Ensure bio image and text never overlap */
+.container.center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hackathon-box {
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+
+.hackathon-header {
+  flex: 1;
+  min-width: 200px; /* prevents text from collapsing too much */
+}
+
+/* On mobile: stack vertically and center */
+@media screen and (max-width: 768px) {
+  .container.center {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hackathon-box {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .hackathon-header {
+    text-align: center;
+  }
+}
   </style>
 </head>
 <body class="body">
@@ -318,7 +351,7 @@
       <div class="container hero">
         <div class="hero-div">
           <h1 class="hero-heading"><span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a04" style="opacity:0" class="hero-connecting"></span> <span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a0a" style="opacity:0" class="hero-communities">CANDY</span> <span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a07" style="opacity:0" class="hero-decentralized">CONCEPTS.CO</span></h1>
-          <h2 data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a0c" style="opacity:0" class="secondary-heading">Turning water to wine by transforming business basics into breakthrough results. Enter the experience.</h2>
+          <h2 data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a0c" style="opacity:0" class="secondary-heading">Enter the experience.</h2>
           <a href="#" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
         </div>
       </div>
