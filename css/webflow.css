@@ -1810,3 +1810,20 @@ textarea.w-select {
 .w-condition-invisible {
   display: none !important;
 }
+
+/* ===== FIX: PIE CHART SIZE ON MOBILE ===== */
+.chart-wrapper {
+  min-height: 400px;
+  width: 100%;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .chart-wrapper {
+    min-height: 350px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .chart-wrapper {
+    min-height: 300px;
+  }
+}

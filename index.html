@@ -239,6 +239,32 @@
       color: white;
       text-align: center;
     }
+    /* Bio photo styling */
+.bio-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px; /* matches .hackathon-box border-radius */
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Ensure the hackathon-box has a defined size and centers the image */
+.hackathon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* keeps image within rounded corners */
+  background-color: #13151c; /* fallback */
+}
+
+/* Responsive adjustments for mobile */
+@media screen and (max-width: 767px) {
+  .bio-photo {
+    object-position: center 30%; /* adjust if needed */
+  }
+}
   </style>
 </head>
 <body class="body">
@@ -293,22 +319,28 @@
     <div class="container center">
       <h2 class="mb-20 grape-access-header">Ready to elevate your business infrastructure?</h2>
       <div class="grape-community-text">Let’s build something intentional.</div>
+      <a href="https://app.luvnft.com" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
+
     </div>
   </div>
   
-  <!-- Bio Section -->
-  <div class="section hackthon">
-    <div class="container center">
-      <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb12f" style="opacity:0" class="hackathon-box">
-        <div data-w-id="b58dc1e8-c5f6-d23f-807c-f273b32eb261" style="opacity:0" class="bg-circle-gradient-3"></div>
-      </div>
-      <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb130" style="opacity:0" class="hackathon-header">
-        <h2 class="mb-20">Candy Terry, Ph.D. – Business Advisor | Strategist</h2>
-        <div class="hackathon-text">With over a decade of experience in operations, leadership development, business systems, and organizational strategy, Candy Terry brings a refined, relationship-driven approach to boutique consulting. Known for identifying inefficiencies, strengthening leadership dynamics, and creating elevated operational experiences, her work focuses on sustainable transformation rooted in clarity, structure, and intentional growth.</div>
-        <div data-w-id="ba0f7c45-392f-87a8-5b55-6eafe33fd236" style="opacity:0" class="bg-circle-gradient-2"></div>
-      </div>
+<!-- Bio Section with Photo -->
+<div class="section hackthon">
+  <div class="container center">
+    <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb12f" style="opacity:0" class="hackathon-box">
+      <!-- Bio Photo -->
+      <img src="/images/dr_candy_terry.PNG" loading="lazy"
+           alt="Dr. Candy Terry – Business Advisor & Strategist" 
+           class="bio-photo">
+      <div data-w-id="b58dc1e8-c5f6-d23f-807c-f273b32eb261" style="opacity:0" class="bg-circle-gradient-3"></div>
+    </div>
+    <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb130" style="opacity:0" class="hackathon-header">
+      <h2 class="mb-20">Candy Terry, Ph.D. – Business Advisor | Strategist</h2>
+      <div class="hackathon-text">With over a decade of experience in operations, leadership development, business systems, and organizational strategy, Candy Terry brings a refined, relationship-driven approach to boutique consulting. Known for identifying inefficiencies, strengthening leadership dynamics, and creating elevated operational experiences, her work focuses on sustainable transformation rooted in clarity, structure, and intentional growth.</div>
+      <div data-w-id="ba0f7c45-392f-87a8-5b55-6eafe33fd236" style="opacity:0" class="bg-circle-gradient-2"></div>
     </div>
   </div>
+</div>
   
   <!-- Features Section (Three Pillars) – Replaces the original crypto cards -->
   <section id="features" class="section features">
@@ -427,21 +459,36 @@
     'Client Experience & Culture 25%',
     'Growth & Performance Strategy 15%'
   ];
-  // Brand colors (teal, navy, gold, coral) – slices only, text will be white
+  // Brand colors (teal, navy, gold, coral)
   let colors = ['#2C5F6B', '#1E3A5F', '#E8B86B', '#D67A5C'];
   
   function drawPieChart() {
     let wrapper = document.querySelector('.chart-wrapper');
     if (!wrapper) return;
     
-    // Force a measurable height if wrapper is empty
-    let width = wrapper.offsetWidth;
-    let height = wrapper.offsetHeight;
-    if (width === 0) width = 600;
-    if (height === 0) height = 450;
+    // Get wrapper size
+    let width = wrapper.clientWidth;
+    let height = 400; // fixed minimum height for mobile
     
-    let radius = Math.min(width, height) * 0.35;
-    radius = Math.min(radius, 200);
+    if (width === 0) width = 300;
+    
+    // Detect mobile (screen width <= 768)
+    let isMobile = window.innerWidth <= 768;
+    
+    // Adjust radius and font size for mobile
+    let radius;
+    let labelFontSize;
+    let labelOffsetMultiplier;
+    
+    if (isMobile) {
+      radius = Math.min(width * 0.28, 120); // smaller radius on mobile
+      labelFontSize = '9px';
+      labelOffsetMultiplier = 1.0; // pull labels closer to avoid overflow
+    } else {
+      radius = Math.min(width * 0.3, 180);
+      labelFontSize = '12px';
+      labelOffsetMultiplier = 1.2;
+    }
     
     // Clear previous chart
     d3.select('.chart-wrapper').select('svg').remove();
@@ -449,18 +496,18 @@
     let svg = d3.select('.chart-wrapper')
       .append('svg')
       .attr('width', '100%')
-      .attr('height', '100%')
+      .attr('height', height + 'px')
       .attr('viewBox', `0 0 ${width} ${height}`)
       .append('g')
       .attr('transform', `translate(${width/2}, ${height/2})`);
     
     let arc = d3.svg.arc()
       .outerRadius(radius)
-      .innerRadius(radius * 0.6);   // donut style
+      .innerRadius(radius * 0.55); // slightly thinner donut on mobile
     
     let outerArc = d3.svg.arc()
-      .innerRadius(radius * 1.0)
-      .outerRadius(radius * 1.0);
+      .innerRadius(radius * 0.9)
+      .outerRadius(radius * 0.9);
     
     let pie = d3.layout.pie().value(d => d);
     let piedata = pie(dataset);
@@ -470,43 +517,46 @@
       .enter().append('g')
       .attr('class', 'slice');
     
-    // Draw slices – fast fade in (no delay)
+    // Draw slices
     slices.append('path')
       .attr('d', arc)
       .attr('fill', (d, i) => colors[i])
       .attr('stroke', 'white')
-      .attr('stroke-width', '2')
+      .attr('stroke-width', '1.5')
       .style('opacity', 0)
       .transition()
-      .duration(500)       // faster than before
+      .duration(500)
       .style('opacity', 1);
     
     let midAngle = d => d.startAngle + (d.endAngle - d.startAngle) / 2;
     
-    // Labels – white text, positioned outside
+    // Labels – adjusted position for mobile
     slices.append('text')
       .attr('transform', d => {
         let pos = outerArc.centroid(d);
-        pos[0] = radius * 1.2 * (midAngle(d) < Math.PI ? 1 : -1);
+        let angle = midAngle(d);
+        let outward = radius * labelOffsetMultiplier;
+        pos[0] = outward * (angle < Math.PI ? 1 : -1);
+        // Add small vertical offset to avoid overlapping on small screens
+        if (isMobile && Math.abs(pos[1]) < 15) pos[1] += (angle < Math.PI ? 8 : -8);
         return 'translate(' + pos + ')';
       })
       .style('text-anchor', d => midAngle(d) < Math.PI ? 'start' : 'end')
       .text((d, i) => consultingLabels[i])
-      .style('fill', '#FFFFFF')    // white text
-      .style('font-size', '12px')
+      .style('fill', '#FFFFFF')
+      .style('font-size', labelFontSize)
       .style('font-weight', '600')
       .style('text-shadow', '0 1px 2px rgba(0,0,0,0.3)')
       .style('opacity', 0)
       .transition()
-      .delay(300)                  // small delay after slices
+      .delay(300)
       .duration(500)
       .style('opacity', 1);
   }
   
-  // Draw immediately when DOM is ready (no scroll delay)
+  // Draw immediately and on resize
   $(document).ready(function() {
     drawPieChart();
-    // Redraw on window resize for responsiveness
     let resizeTimer;
     $(window).on('resize', function() {
       clearTimeout(resizeTimer);

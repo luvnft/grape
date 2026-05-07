@@ -199,10 +199,11 @@
     text-shadow: 0 1px 10px #2C5F6B;
   }
   .hero-communities {
-    background-image: linear-gradient(124deg, #E8B86B, #D67A5C, #2C5F6B, #1E3A5F);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: #E83D8C !important;
+  color: #E83D8C !important;
   }
   .bg-circle-gradient-1 {
     background-image: linear-gradient(180deg, #2C5F6B, #1E3A5F, #E8B86B, #D67A5C);
