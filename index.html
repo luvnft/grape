@@ -4,15 +4,20 @@
   <meta charset="utf-8">
   <title>Candy Concepts | Boutique Business Consulting</title>
   <meta name="description" content="Turning water to wine – transforming business basics into breakthrough results. Operational intelligence meets elevated brand experience.">
+  <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://candyconcepts.co">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Candy Concepts">
   <meta property="og:description" content="Boutique business consulting: operational strategy, leadership development, client experience & culture, growth performance.">
   <meta property="og:image" content="https://app.luvnft.com/wp-content/uploads/2025/09/LUV-NFT-BANNER.jpg">
+  <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="candyconcepts.co">
+  <meta property="twitter:url" content="https://candyconcepts.co">
   <meta name="twitter:title" content="Candy Concepts">
   <meta name="twitter:description" content="Strategy. Leadership. Culture. Growth. Built for long-term impact.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:image" content="https://app.luvnft.com/wp-content/uploads/2025/09/LUV-NFT-BANNER.jpg">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
@@ -40,20 +45,19 @@
       font-size: .99em;
       text-transform: uppercase;
       letter-spacing: .5px;
-      font-family: "Gilroy", sans-serif;
+      font-family: "Gilroy";
     }
     polyline {
       fill: none;
       stroke: grey;
       stroke-width: 1px;
-      stroke-dasharray: 5px;
+      stroke-dasharray : 5px;
     }
-    /* Fixed chart wrapper: ensures visible area and proper sizing */
     .chart-wrapper {
+      max-width: 1140px;
       width: 100%;
-      min-height: 480px;
-      position: relative;
-      margin: 2rem 0;
+      height: 100%;
+      position: absolute;
     }
     .chart-graph {
       transform: translate(50%, 30%);
@@ -185,22 +189,24 @@
         font-size: 1rem;
       }
     }
-    /* Additional fixes for features grid */
+    /* Additional custom styles for features grid (matching original Webflow grid) */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
     .features-card {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.03);
       border-radius: 1rem;
       padding: 1.5rem;
       backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.1);
     }
     .feature-title {
       font-size: 1.5rem;
       margin-bottom: 1rem;
+      color: #E8B86B;
     }
     .features-card-list {
       list-style: disc;
@@ -209,18 +215,10 @@
     .features-card-list li {
       margin-bottom: 0.5rem;
     }
-    .mb-20 {
-      margin-bottom: 1rem;
-    }
-    .mb-40 {
-      margin-bottom: 2rem;
-    }
-    .mb-220 {
-      margin-bottom: 3rem;
-    }
-    .text-center {
-      text-align: center;
-    }
+    .mb-20 { margin-bottom: 1rem; }
+    .mb-40 { margin-bottom: 2rem; }
+    .mb-220 { margin-bottom: 3rem; }
+    .text-center { text-align: center; }
     .button {
       display: inline-block;
       background: #E8B86B;
@@ -229,6 +227,11 @@
       border-radius: 40px;
       text-decoration: none;
       font-weight: bold;
+      transition: all 0.2s ease;
+    }
+    .button:hover {
+      background: #D67A5C;
+      color: white;
     }
     .footer-section {
       background: #0f0f1a;
@@ -247,7 +250,7 @@
         <a href="https://slot.luvnft.com" class="nav-link w-nav-link">🎰 SLOT.</a>
         <a href="https://bet.luvnft.com" class="nav-link w-nav-link">🔮 BET.</a>
         <div class="launch-wrapper">
-          <a href="https://app.luvnft.com" target="_blank" class="nav-button w-nav-link">LUV NFT DAPP<span class="icon carrot-right-icon">play_arrow</span></a>
+          <a href="https://app.luvnft.com" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">LUV NFT DAPP<span class="icon carrot-right-icon">play_arrow</span></a>
         </div>
       </nav>
       <div class="menu-button w-nav-button">
@@ -256,7 +259,7 @@
     </div>
   </div>
   
-  <!-- Hero Section -->
+  <!-- Hero Video Section (preserved original structure) -->
   <section class="hero-video-container">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="videos/grape_bgvid-poster-00001.jpg">
       <source src="videos/grape_bgvid-transcode.mp4" type="video/mp4">
@@ -265,8 +268,8 @@
     <div class="hero-content">
       <div class="container hero">
         <div class="hero-div">
-          <h1 class="hero-heading"><span>CANDY</span> <span>CONCEPTS.CO</span></h1>
-          <h2 class="secondary-heading">Turning water to wine – transforming business basics into breakthrough results.</h2>
+          <h1 class="hero-heading"><span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a04" style="opacity:0" class="hero-connecting"></span> <span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a0a" style="opacity:0" class="hero-communities">CANDY</span> <span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a07" style="opacity:0" class="hero-decentralized">CONCEPTS.CO</span></h1>
+          <h2 data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a0c" style="opacity:0" class="secondary-heading">Turning water to wine – transforming business basics into breakthrough results.</h2>
           <a href="https://app.luvnft.com" class="button mt-40 w-button">ENTER THE EXPERIENCE – BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
         </div>
       </div>
@@ -276,8 +279,9 @@
   <!-- Strategy Section -->
   <div class="section grape">
     <div class="container center">
+      <div data-w-id="875b3a81-c81d-7d96-b291-6acf6643293a" style="opacity:0" class="bg-circle-gradient-1"></div>
       <div class="community-grid">
-        <div class="grape-community-container">
+        <div data-w-id="41d39d7b-f4fa-ac5a-1f81-2d84b6df34ae" style="opacity:0" class="grape-community-container">
           <h2 class="community-heading">Strategy is more than systems. It’s perception, leadership, experience, and execution working in alignment.</h2>
           <div class="grape-community-text">Candy Concepts was created for businesses ready to refine operations, elevate client experience, strengthen leadership, and create sustainable growth through intentional strategy. We specialize in identifying operational blind spots, refining internal systems, and transforming the everyday experience of both teams and clients.</div>
         </div>
@@ -288,30 +292,34 @@
   <!-- Name / Identity Section -->
   <div class="section grape-access">
     <div class="container center">
-      <h2 class="mb-20 grape-access-header">Ready to elevate your business infrastructure?</h2>
-      <div class="grape-community-text">Let’s build something intentional.</div>
+      <h2 class="mb-20 grape-access-header">🆔 NAME</h2>
+      <div class="grape-community-text">Drop your digital slave name and create a new username that aligns with your digital wallet account username to receive payments H2H (Heart-2-Heart).</div>
     </div>
   </div>
   
   <!-- Bio Section -->
   <div class="section hackthon">
     <div class="container center">
-      <div class="hackathon-header">
+      <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb12f" style="opacity:0" class="hackathon-box">
+        <div data-w-id="b58dc1e8-c5f6-d23f-807c-f273b32eb261" style="opacity:0" class="bg-circle-gradient-3"></div>
+      </div>
+      <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb130" style="opacity:0" class="hackathon-header">
         <h2 class="mb-20">Candy Terry, Ph.D. – Business Advisor | Strategist</h2>
         <div class="hackathon-text">With over a decade of experience in operations, leadership development, business systems, and organizational strategy, Candy Terry brings a refined, relationship-driven approach to boutique consulting. Known for identifying inefficiencies, strengthening leadership dynamics, and creating elevated operational experiences, her work focuses on sustainable transformation rooted in clarity, structure, and intentional growth.</div>
+        <div data-w-id="ba0f7c45-392f-87a8-5b55-6eafe33fd236" style="opacity:0" class="bg-circle-gradient-2"></div>
       </div>
     </div>
   </div>
   
-  <!-- Features Section (Three Pillars) -->
+  <!-- Features Section (Three Pillars) – Replaces the original crypto cards -->
   <section id="features" class="section features">
-    <h2 class="mb-220 text-center">Refined strategy. Real transformation.</h2>
+    <h2 data-w-id="d8074669-33a1-aa9d-5c38-4c53efdbf36c" style="opacity:0" class="mb-220 text-center">Refined strategy. Real transformation.</h2>
     <div class="container">
       <div class="w-layout-grid features-grid">
         <!-- Card 1: Operational Intelligence -->
-        <div class="features-card">
+        <div id="w-node-a6af4ef7-3ac0-1a54-7bf1-9b820b147d04-d9f06085" data-w-id="a6af4ef7-3ac0-1a54-7bf1-9b820b147d04" style="opacity:0" class="features-card">
           <h3 class="feature-title">Operational Intelligence + Brand Experience</h3>
-          <ul class="features-card-list">
+          <ul role="list" class="features-card-list w-list-unstyled">
             <li class="mb-20">Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
             <li>No generic consulting templates</li>
             <li>No disconnected systems or siloed strategies</li>
@@ -320,9 +328,9 @@
         </div>
         
         <!-- Card 2: Rejecting Generic Consulting -->
-        <div class="features-card">
+        <div id="w-node-_442d2486-df89-da3e-43eb-28167c807c66-d9f06085" data-w-id="442d2486-df89-da3e-43eb-28167c807c66" style="opacity:0" class="features-card">
           <h3 class="feature-title">Rejecting the Generic Consulting Model</h3>
-          <ul class="features-card-list">
+          <ul role="list" class="features-card-list w-list-unstyled">
             <li class="mb-20">No recycled systems. No one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context.</li>
             <li>No pre-packaged "solutions" copied from other industries</li>
             <li>No assumptions — only discovery, analysis, and custom design</li>
@@ -330,10 +338,10 @@
           </ul>
         </div>
         
-        <!-- Card 3: Discretion, Precision, Intention -->
-        <div class="features-card">
+        <!-- Card 3: Discretion, Precision & Intention -->
+        <div id="w-node-_621cd584-e952-8e81-1e12-f71993c45c0e-d9f06085" data-w-id="621cd584-e952-8e81-1e12-f71993c45c0e" style="opacity:0" class="features-card">
           <h3 class="feature-title">Discretion, Precision &amp; Intention</h3>
-          <ul class="features-card-list">
+          <ul role="list" class="features-card-list w-list-unstyled">
             <li class="mb-20">Every business is approached with discretion, precision, and intention because lasting transformation requires more than a template; it requires a partnership.</li>
             <li>Strict confidentiality and white‑glove collaboration</li>
             <li>Surgical precision in identifying inefficiencies and opportunities</li>
@@ -344,19 +352,19 @@
     </div>
   </section>
   
-  <!-- Tokenomics / Four Pillars + Pie Chart -->
-  <section id="tokenomics" class="section tokenomics">
+  <!-- Tokenomics / Four Pillars + Pie Chart (original scroll‑triggered D3 chart) -->
+  <section id="tokenomics" data-w-id="aa68594d-0cc4-8050-d59c-4c45935c5826" style="opacity:0" class="section tokenomics">
     <h2 class="mb-40 text-center">Beyond Consulting: The Four Pillars of Operational Excellence</h2>
     <div class="container roadmap">
-      <div style="text-align: center; margin-bottom: 2rem;">
+      <div style="text-align: center;">
         <a href="https://pump.fun/coin/7iNzESXq8Ln3wyww5hgLM1G2NKKkmzczk1bv2tARpump" class="button mt-40 w-button">ENTER THE EXPERIENCE – BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
       </div>
-      <h3 class="total-supply" style="text-align: center; font-weight: normal; margin-bottom: 2rem;">We integrate operational strategy, leadership development, client experience, and growth performance into a cohesive advisory framework that refines workflows, strengthens teams, elevates culture, and drives sustainable scalability without generic templates or one-size-fits-all solutions.</h3>
+      <h3 class="total-supply">We integrate operational strategy, leadership development, client experience, and growth performance into a cohesive advisory framework that refines workflows, strengthens teams, elevates culture, and drives sustainable scalability without generic templates or one-size-fits-all solutions.</h3>
       <div class="chart-wrapper"></div>
     </div>
   </section>
   
-  <!-- FAQ Section -->
+  <!-- FAQ Section (unchanged from original) -->
   <section class="faq-section">
     <div class="faq-container">
       <h2 class="faq-title">❓ FREQUENTLY ASKED QUESTIONS</h2>
@@ -392,10 +400,10 @@
   <div class="footer-section">
     <div class="container footer">
       <div class="leftgrid">
-        <div class="text-block"><span class="great-ape">CandyConcepts.co</span><br>Atlanta, Georgia <br><span class="copyright">844-8-CANDYCO<br>drcandy@candyconcepts.co</span></div>
+        <div class="text-block"><span class="great-ape">CandyConcepts.co</span><br>Atlanta, Georgia <br><span class="copyright">844-8-CANDYCO<br>drcandy@candyconcepts.co</span><br></div>
       </div>
-      <div class="right-grid">
-        <a href="https://app.luvnft.com" target="_blank" class="nav-button w-nav-link">ENTER THE EXPERIENCE – BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
+      <div id="w-node-bb247140-920a-bbc0-09be-352db5d2000b-d9f06085" class="right-grid">
+        <a href="https://app.luvnft.com" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">ENTER THE EXPERIENCE – BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
       </div>
     </div>
   </div>
@@ -404,7 +412,7 @@
   <script src="js/webflow.js" type="text/javascript"></script>
   
   <script>
-    // Consulting focus areas for pie chart
+    // Updated dataset for consulting focus areas (matching original D3 pie chart)
     let dataset = [35, 25, 25, 15];
     let consultingLabels = [
       'Operational Strategy 35%',
@@ -412,17 +420,14 @@
       'Client Experience & Culture 25%',
       'Growth & Performance Strategy 15%'
     ];
+    // Candy Concepts brand palette (teal, navy, gold, coral)
     let colors = ['#2C5F6B', '#1E3A5F', '#E8B86B', '#D67A5C'];
     
-    function drawPieChart() {
-      let wrapper = document.querySelector('.chart-wrapper');
-      if (!wrapper) return;
-      let width = wrapper.offsetWidth;
-      let height = wrapper.offsetHeight;
-      if (width === 0) width = 600;
-      if (height === 0) height = 480;
-      let radius = Math.min(width, height) / 2.5;
-      radius = Math.min(radius, 200);
+    let draw = function() {
+      let width = document.querySelector('.chart-wrapper').offsetWidth;
+      let height = document.querySelector('.chart-wrapper').offsetHeight;
+      let minOfWH = Math.min(width, height) / 2;
+      let radius = minOfWH > 200 ? 200 : minOfWH;
       
       d3.select('.chart-wrapper').select('svg').remove();
       
@@ -430,83 +435,82 @@
         .append('svg')
         .attr('width', '100%')
         .attr('height', '100%')
-        .attr('viewBox', `0 0 ${width} ${height}`)
+        .attr('class', 'pieChart')
         .append('g')
-        .attr('transform', `translate(${width/2}, ${height/2})`);
+        .attr('class', 'chart-graph');
       
       let arc = d3.svg.arc()
-        .outerRadius(radius * 0.8)
-        .innerRadius(radius * 0.5);
+        .outerRadius(radius * 0.65)
+        .innerRadius(radius * 0.45);
       
       let outerArc = d3.svg.arc()
-        .innerRadius(radius * 0.9)
-        .outerRadius(radius * 0.9);
+        .innerRadius(radius * 0.85)
+        .outerRadius(radius * 0.85);
       
       let pie = d3.layout.pie().value(function(d) { return d; });
-      let piedata = pie(dataset);
       
-      let slices = svg.selectAll('.slice')
-        .data(piedata)
-        .enter().append('g');
+      let defs = svg.append('defs');
+      let filter = defs.append('filter').attr('id', 'dropshadow');
+      filter.append('feGaussianBlur').attr('in', 'SourceAlpha').attr('stdDeviation', 7).attr('result', 'blur');
+      filter.append('feOffset').attr('in', 'blur').attr('dx', 0).attr('dy', 0).attr('result', 'offsetBlur');
+      let feMerge = filter.append('feMerge');
+      feMerge.append('feMergeNode').attr('in', 'offsetBlur');
+      feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
       
-      slices.append('path')
+      let slice = svg.selectAll('.slice')
+        .data(pie(dataset))
+        .enter().append('g')
+        .attr('class', 'slice');
+      
+      slice.append('path')
         .attr('d', arc)
         .attr('fill', function(d, i) { return colors[i]; })
-        .attr('stroke', 'white')
-        .attr('stroke-width', '1.5px')
+        .attr('filter', 'url(#dropshadow)')
         .style('opacity', 0)
         .transition()
-        .delay(function(d,i) { return i * 200; })
-        .duration(1000)
+        .delay(function(d, i) { return i * 150 + 200; })
+        .duration(2000)
         .style('opacity', 1);
       
       let midAngle = function(d) {
         return d.startAngle + (d.endAngle - d.startAngle) / 2;
       };
       
-      slices.append('text')
+      slice.append('text')
         .attr('transform', function(d) {
           let pos = outerArc.centroid(d);
-          let angle = midAngle(d);
-          pos[0] = radius * 1.05 * (angle < Math.PI ? 1 : -1);
+          pos[0] = radius * 0.95 * (midAngle(d) < Math.PI ? 1 : -1);
           return 'translate(' + pos + ')';
         })
         .style('text-anchor', function(d) {
           return midAngle(d) < Math.PI ? 'start' : 'end';
         })
-        .text(function(d,i) { return consultingLabels[i]; })
-        .style('fill', function(d,i) { return colors[i]; })
-        .style('font-size', '11px')
-        .style('font-weight', 'bold')
+        .text(function(d, i) { return consultingLabels[i]; })
+        .style('fill', function(d, i) { return colors[i]; })
+        .style('font-size', '12px')
+        .style('font-weight', '500')
         .style('opacity', 0)
         .transition()
-        .delay(1200)
-        .duration(800)
+        .delay(2000)
+        .duration(1000)
         .style('opacity', 1);
-    }
+    };
     
     $(document).ready(function() {
-      // Trigger chart when in viewport
-      let chartDrawn = false;
-      function checkChart() {
-        let $wrapper = $('.chart-wrapper');
-        if ($wrapper.length && !chartDrawn) {
-          let top = $wrapper.offset().top;
-          let scrollTop = $(window).scrollTop();
-          let windowHeight = $(window).height();
-          if (scrollTop + windowHeight > top - 100) {
-            drawPieChart();
-            chartDrawn = true;
-          }
+      $(window).scroll(function() {
+        let chartWrapper = $('.chart-wrapper');
+        if (chartWrapper.length && $(window).scrollTop() >= chartWrapper.offset().top - ($(window).height() / 2)) {
+          $(window).off('scroll');
+          draw();
         }
+      });
+      if ($('.chart-wrapper').length && $('.chart-wrapper').offset().top < $(window).height()) {
+        draw();
       }
-      $(window).on('scroll', checkChart);
-      checkChart();
       
-      // FAQ toggle
       $('.faq-question').click(function() {
-        let answer = $(this).next('.faq-answer');
-        let toggle = $(this).find('.faq-toggle');
+        const answer = $(this).next('.faq-answer');
+        const toggle = $(this).find('.faq-toggle');
         $('.faq-answer').not(answer).removeClass('active');
         $('.faq-toggle').not(toggle).removeClass('active');
         answer.toggleClass('active');
@@ -514,12 +518,13 @@
       });
     });
     
-    // Hero video autoplay
     window.addEventListener('load', function() {
       const video = document.querySelector('.hero-video');
       if (video) {
         video.muted = true;
-        video.play().catch(e => console.log("autoplay blocked:", e));
+        video.play().catch(function(error) {
+          console.log("Video autoplay failed: ", error);
+        });
       }
     });
   </script>
