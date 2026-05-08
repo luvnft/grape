@@ -37,7 +37,7 @@
       overflow-x: hidden;
     }
 
-    /* ===== FONTS – Marcellus for headings (matches logo), Gilroy for body ===== */
+    /* ===== ONE FONT FOR EVERYTHING – MARCELLUS (matches logo's 'a') ===== */
     @font-face {
       font-family: 'Marcellus';
       src: url('../fonts/Marcellus-Regular.ttf') format('truetype');
@@ -45,38 +45,24 @@
       font-style: normal;
       font-display: swap;
     }
-    @font-face {
-      font-family: 'Gilroy';
-      src: url('../fonts/Gilroy-Light.otf') format('opentype');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Gilroy';
-      src: url('../fonts/Gilroy-ExtraBold.otf') format('opentype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
 
     body {
       background-color: #050814;
-      font-family: 'Gilroy', system-ui, sans-serif;
-      font-weight: 300;
+      font-family: 'Marcellus', 'Georgia', serif;
+      font-weight: 400;
       color: #fff;
       font-size: 16px;
       line-height: 1.5;
     }
 
-    /* All headings – Marcellus (logo font) */
-    h1, h2, h3, h4, h5, h6,
+    /* All text – Marcellus */
+    h1, h2, h3, h4, h5, h6, p, li, .button, .nav-link, 
     .hero-heading, .community-heading, .feature-title,
     .tokenomics h2, .faq-title, .grape-access-header,
-    .hackathon-header h2, .secondary-heading {
+    .hackathon-header h2, .secondary-heading, .grape-community-text,
+    .hackathon-text, .faq-answer, .features-card-list, .text-block, .copyright {
       font-family: 'Marcellus', 'Georgia', serif !important;
-      font-weight: 400 !important;
-      letter-spacing: normal;
+      font-weight: 400;
     }
 
     /* Keep heading sizes */
@@ -87,15 +73,6 @@
       h1, .hero-heading { font-size: 42px; }
       h2 { font-size: 32px; }
       h3 { font-size: 24px; }
-    }
-
-    /* Body text – Gilroy Light */
-    p, li, .grape-community-text, .hackathon-text, .faq-answer,
-    .features-card-list, .text-block, .copyright {
-      font-weight: 300;
-    }
-    .button, .nav-button {
-      font-weight: 700;
     }
 
     /* ===== ORIGINAL LAYOUT STYLES (preserved from working code) ===== */
@@ -110,7 +87,7 @@
       font-size: .99em;
       text-transform: uppercase;
       letter-spacing: .5px;
-      font-family: "Gilroy";
+      font-family: "Marcellus";
     }
     polyline {
       fill: none;
@@ -210,7 +187,7 @@
       .faq-question { font-size: 1rem; }
     }
 
-    /* ===== FEATURE CARDS – restored from working code (3 columns, responsive) ===== */
+    /* ===== FEATURE CARDS – EXACTLY FROM YOUR WORKING CODE (with fixed list items) ===== */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -368,7 +345,7 @@
       }
     }
 
-    /* Gradients (unchanged) */
+    /* Gradients */
     .bg-circle-gradient-1 {
       background-image: linear-gradient(180deg, #2C5F6B, #1E3A5F, #C17887, #D67A5C);
       filter: blur(25px);
@@ -419,7 +396,6 @@
       gap: 24px;
     }
     .grape-community-container { max-width: 402px; }
-    .hackathon-text, .grape-community-text { font-weight: 300; }
     .w-layout-grid {
       display: grid;
       grid-auto-columns: 1fr;
@@ -509,15 +485,15 @@
     </div>
   </div>
 
-  <!-- Features Section (Three Pillars) – restored grid layout -->
+  <!-- Features Section (Three Pillars) – using same structure as your working code -->
   <section id="features" class="section features">
     <h2 data-w-id="d8074669-33a1-aa9d-5c38-4c53efdbf36c" style="opacity:0" class="mb-220 text-center">Refined strategy. Real transformation.</h2>
     <div class="container">
       <div class="w-layout-grid features-grid">
         <div id="w-node-a6af4ef7-3ac0-1a54-7bf1-9b820b147d04-d9f06085" data-w-id="a6af4ef7-3ac0-1a54-7bf1-9b820b147d04" style="opacity:0" class="features-card">
           <h3 class="feature-title">Operational Intelligence + Brand Experience</h3>
-          <ul class="features-card-list">
-            <li>Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
+          <ul role="list" class="features-card-list">
+            <li class="mb-20">Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
             <li>No generic consulting templates</li>
             <li>No disconnected systems or siloed strategies</li>
             <li>A unified framework that aligns operations with brand identity</li>
@@ -525,8 +501,8 @@
         </div>
         <div id="w-node-_442d2486-df89-da3e-43eb-28167c807c66-d9f06085" data-w-id="442d2486-df89-da3e-43eb-28167c807c66" style="opacity:0" class="features-card">
           <h3 class="feature-title">Rejecting the Generic Consulting Model</h3>
-          <ul class="features-card-list">
-            <li>No recycled systems. No one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context.</li>
+          <ul role="list" class="features-card-list">
+            <li class="mb-20">No recycled systems. No one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context.</li>
             <li>No pre-packaged "solutions" copied from other industries</li>
             <li>No assumptions — only discovery, analysis, and custom design</li>
             <li>Every system is built around your team, your culture, and your goals</li>
@@ -534,8 +510,8 @@
         </div>
         <div id="w-node-_621cd584-e952-8e81-1e12-f71993c45c0e-d9f06085" data-w-id="621cd584-e952-8e81-1e12-f71993c45c0e" style="opacity:0" class="features-card">
           <h3 class="feature-title">Discretion, Precision &amp; Intention</h3>
-          <ul class="features-card-list">
-            <li>Every business is approached with discretion, precision, and intention because lasting transformation requires more than a template; it requires a partnership.</li>
+          <ul role="list" class="features-card-list">
+            <li class="mb-20">Every business is approached with discretion, precision, and intention because lasting transformation requires more than a template; it requires a partnership.</li>
             <li>Strict confidentiality and white‑glove collaboration</li>
             <li>Surgical precision in identifying inefficiencies and opportunities</li>
             <li>Intentional pacing that balances momentum with sustainable change</li>
