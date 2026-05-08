@@ -269,55 +269,55 @@
       text-align: center;
     }
 
-/* Bio section – image inside hackathon-box */
-.container.center {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
-}
-.hackathon-box {
-  width: 140px;          /* smaller on desktop */
-  height: 140px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #13151c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin: 0;
-  position: relative;
-}
-.bio-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  position: relative;
-  z-index: 2;
-}
-.hackathon-header {
-  flex: 1;
-  min-width: 220px;      /* ensures text doesn't get crushed */
-}
-@media (max-width: 768px) {
-  .container.center {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  .hackathon-box {
-    width: 180px;        /* larger on mobile */
-    height: 180px;
-    margin-bottom: 0;
-  }
-  .hackathon-header {
-    text-align: center;
-    width: 100%;
-  }
-}
+    /* Bio section – image inside hackathon-box, no overlap */
+    .container.center {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+    }
+    .hackathon-box {
+      width: 140px;
+      height: 140px;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: #13151c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin: 0;
+      position: relative;
+    }
+    .bio-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+    .hackathon-header {
+      flex: 1;
+      min-width: 220px;
+    }
+    @media (max-width: 768px) {
+      .container.center {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .hackathon-box {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 0;
+      }
+      .hackathon-header {
+        text-align: center;
+        width: 100%;
+      }
+    }
 
     /* Hero heading colours – pink + gold */
     .hero-communities {
@@ -335,7 +335,7 @@
       -webkit-text-fill-color: #CF8B71 !important;
     }
 
-    /* Gradient circles (keep original) */
+    /* Gradient circles */
     .bg-circle-gradient-1 {
       background-image: linear-gradient(180deg, #2C5F6B, #1E3A5F, #C17887, #D67A5C);
       filter: blur(25px);
@@ -349,7 +349,7 @@
       filter: blur(40px);
     }
 
-    /* Keep rest of Webflow grid, nav etc. (abbreviated but functional) */
+    /* Keep rest of Webflow grid, nav etc. */
     .w-layout-grid {
       display: grid;
       grid-auto-columns: 1fr;
@@ -375,7 +375,6 @@
       font-weight: 700;
     }
     .logo { width: 176px; margin-top: 10px; }
-    /* Additional container styles */
     .container {
       max-width: 1140px;
       margin: 0 auto;
@@ -394,7 +393,7 @@
     }
     .grape-community-container { max-width: 402px; }
     .hackathon-text, .grape-community-text { font-weight: 300; }
-    
+
     /* Prevent feature card text clipping */
     .features-card {
       height: auto !important;
