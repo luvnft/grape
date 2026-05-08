@@ -32,13 +32,19 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     html, body {
       max-width: 100%;
       overflow-x: hidden;
     }
 
-    /* ===== FONTS ===== */
+    /* ===== FONTS – Marcellus for headings (matches logo), Gilroy for body ===== */
+    @font-face {
+      font-family: 'Marcellus';
+      src: url('../fonts/Marcellus-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
     @font-face {
       font-family: 'Gilroy';
       src: url('../fonts/Gilroy-Light.otf') format('opentype');
@@ -63,16 +69,17 @@
       line-height: 1.5;
     }
 
-    /* Headings – Gilroy Light (300) */
+    /* All headings – Marcellus (logo font) */
     h1, h2, h3, h4, h5, h6,
     .hero-heading, .community-heading, .feature-title,
     .tokenomics h2, .faq-title, .grape-access-header,
     .hackathon-header h2, .secondary-heading {
-      font-family: 'Gilroy', sans-serif;
-      font-weight: 300 !important;
-      letter-spacing: -0.02em;
+      font-family: 'Marcellus', 'Georgia', serif !important;
+      font-weight: 400 !important;
+      letter-spacing: normal;
     }
 
+    /* Keep heading sizes */
     h1, .hero-heading { font-size: 68px; }
     h2 { font-size: 48px; }
     h3 { font-size: 28px; }
@@ -82,16 +89,16 @@
       h3 { font-size: 24px; }
     }
 
+    /* Body text – Gilroy Light */
     p, li, .grape-community-text, .hackathon-text, .faq-answer,
     .features-card-list, .text-block, .copyright {
       font-weight: 300;
     }
-
     .button, .nav-button {
       font-weight: 700;
     }
 
-    /* ===== LAYOUT & COMPONENTS ===== */
+    /* ===== ORIGINAL LAYOUT STYLES (preserved from working code) ===== */
     path {
       stroke: whitesmoke;
       stroke-width: 2px;
@@ -203,9 +210,10 @@
       .faq-question { font-size: 1rem; }
     }
 
+    /* ===== FEATURE CARDS – restored from working code (3 columns, responsive) ===== */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-top: 2rem;
     }
@@ -215,8 +223,8 @@
       padding: 1.5rem;
       backdrop-filter: blur(4px);
       border: 1px solid rgba(255,255,255,0.1);
-      height: auto !important;
-      min-height: auto;
+      height: auto;
+      min-height: 380px;
     }
     .feature-title {
       font-size: 1.5rem;
@@ -228,6 +236,26 @@
       padding-left: 1.2rem;
       color: #c9c9c9;
     }
+    .features-card-list li {
+      margin-bottom: 0.5rem;
+      white-space: normal;
+      word-break: break-word;
+    }
+    @media (max-width: 991px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+    @media (max-width: 767px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .features-card {
+        min-height: auto;
+      }
+    }
+
     .button {
       display: inline-block;
       background: #C17887;
@@ -248,7 +276,7 @@
       text-align: center;
     }
 
-    /* Bio section – image inside hackathon-box, no overlap */
+    /* Bio section – image inside hackathon-box, no overlap, responsive */
     .container.center {
       display: flex;
       flex-wrap: wrap;
@@ -281,7 +309,6 @@
       flex: 1;
       min-width: 220px;
     }
-    /* Mobile: stack, no absolute positioning */
     @media (max-width: 768px) {
       .container.center {
         flex-direction: column;
@@ -291,10 +318,9 @@
       .hackathon-box {
         width: 180px;
         height: 180px;
-        position: relative; /* not absolute */
+        position: relative;
         top: auto;
         right: auto;
-        margin-bottom: 0;
       }
       .hackathon-header {
         text-align: center;
@@ -302,7 +328,7 @@
       }
     }
 
-    /* Hero heading colours */
+    /* Hero heading colours & centering */
     .hero-communities {
       background: none !important;
       -webkit-background-clip: unset !important;
@@ -317,8 +343,32 @@
       background-clip: unset !important;
       -webkit-text-fill-color: #CF8B71 !important;
     }
+    .hero-heading {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+      gap: 0;
+      text-align: center;
+    }
+    .hero-heading span {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    @media (max-width: 600px) {
+      .hero-heading {
+        flex-direction: column;
+        gap: 0;
+      }
+      .hero-heading span {
+        white-space: normal;
+      }
+      .hero-heading {
+        font-size: 36px;
+      }
+    }
 
-    /* Gradients */
+    /* Gradients (unchanged) */
     .bg-circle-gradient-1 {
       background-image: linear-gradient(180deg, #2C5F6B, #1E3A5F, #C17887, #D67A5C);
       filter: blur(25px);
@@ -332,7 +382,7 @@
       filter: blur(40px);
     }
 
-    /* Navbar and containers */
+    /* Navbar & containers */
     .navbar {
       position: absolute;
       width: 100%;
@@ -370,35 +420,6 @@
     }
     .grape-community-container { max-width: 402px; }
     .hackathon-text, .grape-community-text { font-weight: 300; }
-
-    /* Fix hero heading centering & mobile fit */
-    .hero-heading {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: baseline;
-      gap: 0;
-      text-align: center;
-      word-break: keep-all;
-    }
-    .hero-heading span {
-      display: inline-block;
-      white-space: nowrap;
-    }
-    @media (max-width: 600px) {
-      .hero-heading {
-        flex-direction: column;
-        gap: 0;
-      }
-      .hero-heading span {
-        white-space: normal;
-      }
-      .hero-heading {
-        font-size: 36px;
-      }
-    }
-
-    /* Additional Webflow grid fix */
     .w-layout-grid {
       display: grid;
       grid-auto-columns: 1fr;
@@ -406,12 +427,9 @@
       grid-row-gap: 16px;
       grid-column-gap: 16px;
     }
-    /* Keep original section spacing */
     .section.tokenomics {
       background-image: url('../images/grid3.png');
-      background-position: 0px 0px;
       background-size: cover;
-      background-repeat: no-repeat;
     }
     .section.hackthon { min-height: auto; margin-bottom: 100px; }
     .text-center { text-align: center; }
@@ -491,13 +509,13 @@
     </div>
   </div>
 
-  <!-- Features Section -->
+  <!-- Features Section (Three Pillars) – restored grid layout -->
   <section id="features" class="section features">
     <h2 data-w-id="d8074669-33a1-aa9d-5c38-4c53efdbf36c" style="opacity:0" class="mb-220 text-center">Refined strategy. Real transformation.</h2>
     <div class="container">
       <div class="w-layout-grid features-grid">
         <div id="w-node-a6af4ef7-3ac0-1a54-7bf1-9b820b147d04-d9f06085" data-w-id="a6af4ef7-3ac0-1a54-7bf1-9b820b147d04" style="opacity:0" class="features-card">
-          <h3 class="feature-title">Brand Experience</h3>
+          <h3 class="feature-title">Operational Intelligence + Brand Experience</h3>
           <ul class="features-card-list">
             <li>Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
             <li>No generic consulting templates</li>
@@ -506,7 +524,7 @@
           </ul>
         </div>
         <div id="w-node-_442d2486-df89-da3e-43eb-28167c807c66-d9f06085" data-w-id="442d2486-df89-da3e-43eb-28167c807c66" style="opacity:0" class="features-card">
-          <h3 class="feature-title">Candy Consulting</h3>
+          <h3 class="feature-title">Rejecting the Generic Consulting Model</h3>
           <ul class="features-card-list">
             <li>No recycled systems. No one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context.</li>
             <li>No pre-packaged "solutions" copied from other industries</li>
@@ -515,7 +533,7 @@
           </ul>
         </div>
         <div id="w-node-_621cd584-e952-8e81-1e12-f71993c45c0e-d9f06085" data-w-id="621cd584-e952-8e81-1e12-f71993c45c0e" style="opacity:0" class="features-card">
-          <h3 class="feature-title">Precision &amp; Intention</h3>
+          <h3 class="feature-title">Discretion, Precision &amp; Intention</h3>
           <ul class="features-card-list">
             <li>Every business is approached with discretion, precision, and intention because lasting transformation requires more than a template; it requires a partnership.</li>
             <li>Strict confidentiality and white‑glove collaboration</li>
