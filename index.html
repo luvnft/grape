@@ -54,7 +54,6 @@
       font-display: swap;
     }
 
-    /* Base body – Gilroy Light 300 */
     body {
       background-color: #050814;
       font-family: 'Gilroy', system-ui, sans-serif;
@@ -64,7 +63,7 @@
       line-height: 1.5;
     }
 
-    /* ALL headings – also Gilroy Light 300 */
+    /* Headings – Gilroy Light (300) */
     h1, h2, h3, h4, h5, h6,
     .hero-heading, .community-heading, .feature-title,
     .tokenomics h2, .faq-title, .grape-access-header,
@@ -74,7 +73,6 @@
       letter-spacing: -0.02em;
     }
 
-    /* Keep heading sizes and hierarchy */
     h1, .hero-heading { font-size: 68px; }
     h2 { font-size: 48px; }
     h3 { font-size: 28px; }
@@ -84,18 +82,16 @@
       h3 { font-size: 24px; }
     }
 
-    /* Body text, paragraphs, lists */
     p, li, .grape-community-text, .hackathon-text, .faq-answer,
     .features-card-list, .text-block, .copyright {
       font-weight: 300;
     }
 
-    /* Buttons & nav – can use bold variant */
     .button, .nav-button {
       font-weight: 700;
     }
 
-    /* ===== ORIGINAL STYLES (unchanged layout) ===== */
+    /* ===== LAYOUT & COMPONENTS ===== */
     path {
       stroke: whitesmoke;
       stroke-width: 2px;
@@ -128,20 +124,6 @@
     @media (max-width: 520px) { .chart-graph { transform: translate(54%, 20%) scale(0.6,0.6); } }
     @media (max-width: 479px) { .chart-graph { transform: translate(53%, 20%) scale(0.55,0.55); } }
 
-    .video-container {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 56.25%;
-      margin: 20px 0;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
     .section {
       position: relative;
       overflow: hidden;
@@ -233,6 +215,8 @@
       padding: 1.5rem;
       backdrop-filter: blur(4px);
       border: 1px solid rgba(255,255,255,0.1);
+      height: auto !important;
+      min-height: auto;
     }
     .feature-title {
       font-size: 1.5rem;
@@ -244,11 +228,6 @@
       padding-left: 1.2rem;
       color: #c9c9c9;
     }
-    .mb-20 { margin-bottom: 1rem; }
-    .mb-40 { margin-bottom: 2rem; }
-    .mb-220 { margin-bottom: 3rem; }
-    .text-center { text-align: center; }
-
     .button {
       display: inline-block;
       background: #C17887;
@@ -302,6 +281,7 @@
       flex: 1;
       min-width: 220px;
     }
+    /* Mobile: stack, no absolute positioning */
     @media (max-width: 768px) {
       .container.center {
         flex-direction: column;
@@ -311,6 +291,9 @@
       .hackathon-box {
         width: 180px;
         height: 180px;
+        position: relative; /* not absolute */
+        top: auto;
+        right: auto;
         margin-bottom: 0;
       }
       .hackathon-header {
@@ -319,7 +302,7 @@
       }
     }
 
-    /* Hero heading colours – pink + gold */
+    /* Hero heading colours */
     .hero-communities {
       background: none !important;
       -webkit-background-clip: unset !important;
@@ -335,7 +318,7 @@
       -webkit-text-fill-color: #CF8B71 !important;
     }
 
-    /* Gradient circles */
+    /* Gradients */
     .bg-circle-gradient-1 {
       background-image: linear-gradient(180deg, #2C5F6B, #1E3A5F, #C17887, #D67A5C);
       filter: blur(25px);
@@ -349,20 +332,14 @@
       filter: blur(40px);
     }
 
-    /* Keep rest of Webflow grid, nav etc. */
-    .w-layout-grid {
-      display: grid;
-      grid-auto-columns: 1fr;
-      grid-template-columns: 1fr 1fr;
-      grid-row-gap: 16px;
-      grid-column-gap: 16px;
-    }
+    /* Navbar and containers */
     .navbar {
       position: absolute;
       width: 100%;
       padding: 5px 0;
       background-color: transparent;
       color: #fff;
+      z-index: 1000;
     }
     .nav-menu { margin-left: auto; }
     .nav-link { transition: 200ms; color: #fff; text-decoration: none; padding: 20px; display: inline-block; }
@@ -394,17 +371,7 @@
     .grape-community-container { max-width: 402px; }
     .hackathon-text, .grape-community-text { font-weight: 300; }
 
-    /* Prevent feature card text clipping */
-    .features-card {
-      height: auto !important;
-      min-height: 400px;
-    }
-    .features-card-list li {
-      white-space: normal;
-      word-break: break-word;
-    }
-
-    /* ===== FIX HERO HEADING CENTERING & MOBILE FIT ===== */
+    /* Fix hero heading centering & mobile fit */
     .hero-heading {
       display: flex;
       flex-wrap: wrap;
@@ -430,6 +397,27 @@
         font-size: 36px;
       }
     }
+
+    /* Additional Webflow grid fix */
+    .w-layout-grid {
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 16px;
+      grid-column-gap: 16px;
+    }
+    /* Keep original section spacing */
+    .section.tokenomics {
+      background-image: url('../images/grid3.png');
+      background-position: 0px 0px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .section.hackthon { min-height: auto; margin-bottom: 100px; }
+    .text-center { text-align: center; }
+    .mb-20 { margin-bottom: 1rem; }
+    .mb-40 { margin-bottom: 2rem; }
+    .mb-220 { margin-bottom: 3rem; }
   </style>
 </head>
 <body class="body">
@@ -488,11 +476,11 @@
     </div>
   </div>
 
-  <!-- Bio Section -->
+  <!-- Bio Section (image inside hackathon-box) -->
   <div class="section hackthon">
     <div class="container center">
-      <img src="/images/dr_candy_terry.PNG" loading="lazy" alt="Dr. Candy Terry" class="bio-photo">
       <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb12f" style="opacity:0" class="hackathon-box">
+        <img src="/images/dr_candy_terry.PNG" loading="lazy" alt="Dr. Candy Terry" class="bio-photo">
         <div data-w-id="b58dc1e8-c5f6-d23f-807c-f273b32eb261" style="opacity:0" class="bg-circle-gradient-3"></div>
       </div>
       <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb130" style="opacity:0" class="hackathon-header">
@@ -509,7 +497,7 @@
     <div class="container">
       <div class="w-layout-grid features-grid">
         <div id="w-node-a6af4ef7-3ac0-1a54-7bf1-9b820b147d04-d9f06085" data-w-id="a6af4ef7-3ac0-1a54-7bf1-9b820b147d04" style="opacity:0" class="features-card">
-          <h3 class="feature-title">Brand Experience</h3>
+          <h3 class="feature-title">Operational Intelligence + Brand Experience</h3>
           <ul class="features-card-list">
             <li>Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
             <li>No generic consulting templates</li>
@@ -518,7 +506,7 @@
           </ul>
         </div>
         <div id="w-node-_442d2486-df89-da3e-43eb-28167c807c66-d9f06085" data-w-id="442d2486-df89-da3e-43eb-28167c807c66" style="opacity:0" class="features-card">
-          <h3 class="feature-title">Consulting Model</h3>
+          <h3 class="feature-title">Rejecting the Generic Consulting Model</h3>
           <ul class="features-card-list">
             <li>No recycled systems. No one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context.</li>
             <li>No pre-packaged "solutions" copied from other industries</li>
@@ -527,7 +515,7 @@
           </ul>
         </div>
         <div id="w-node-_621cd584-e952-8e81-1e12-f71993c45c0e-d9f06085" data-w-id="621cd584-e952-8e81-1e12-f71993c45c0e" style="opacity:0" class="features-card">
-          <h3 class="feature-title">Precision &amp; Intention</h3>
+          <h3 class="feature-title">Discretion, Precision &amp; Intention</h3>
           <ul class="features-card-list">
             <li>Every business is approached with discretion, precision, and intention because lasting transformation requires more than a template; it requires a partnership.</li>
             <li>Strict confidentiality and white‑glove collaboration</li>
