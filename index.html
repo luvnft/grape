@@ -239,14 +239,16 @@
     }
 
     .button {
-      display: inline-block;
-      background: #C17887;
-      color: #1E3A5F;
-      padding: 0.8rem 1.5rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: all 0.2s ease;
+     display: inline-block;
+     background: #C17887;
+     color: #000000;
+     padding: 0.8rem 1.5rem;
+     border-radius: 40px;
+     text-decoration: none;
+     font-weight: 700;
+     transition: all 0.2s ease;
+     white-space: nowrap;   /* ← prevents text from wrapping */
+     width: auto;           /* ← ensures no fixed width forces wrapping */
     }
     .button:hover {
       background: #D67A5C;
@@ -378,7 +380,7 @@
     .nav-link:hover { color: #C17887; }
     .nav-button {
       background-color: #C17887;
-      color: #1E3A5F;
+      color: #000000;
       padding: 6px 24px;
       border-radius: 20px;
       font-weight: 700;
@@ -471,7 +473,7 @@
     <div class="container center">
       <h2 class="mb-20 grape-access-header">Ready to elevate your business infrastructure?</h2>
       <div class="grape-community-text">Let’s build something intentional.</div>
-      <a href="#" class="button mt-40 w-button">BOOK A CONSULTATION<span class="icon carrot-right-icon">play_arrow</span></a>
+      <a href="#" class="button mt-40 w-button">Start the Conversation<span class="icon carrot-right-icon">play_arrow</span></a>
     </div>
   </div>
 
