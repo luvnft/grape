@@ -75,7 +75,7 @@
       h3 { font-size: 24px; }
     }
 
-    /* ===== ORIGINAL LAYOUT STYLES (preserved from working code) ===== */
+    /* ===== ORIGINAL LAYOUT STYLES ===== */
     path {
       stroke: whitesmoke;
       stroke-width: 2px;
@@ -187,7 +187,7 @@
       .faq-question { font-size: 1rem; }
     }
 
-    /* ===== SIMPLE, ROBUST FEATURE CARDS (no absolute positioning) ===== */
+    /* ===== FEATURE CARDS ===== */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -221,7 +221,6 @@
       margin-bottom: 0.5rem;
       line-height: 1.4;
     }
-    /* Responsive */
     @media (max-width: 991px) {
       .features-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -239,16 +238,16 @@
     }
 
     .button {
-     display: inline-block;
-     background: #C17887;
-     color: #000000;
-     padding: 0.8rem 1.5rem;
-     border-radius: 40px;
-     text-decoration: none;
-     font-weight: 700;
-     transition: all 0.2s ease;
-     white-space: nowrap;   /* ← prevents text from wrapping */
-     width: auto;           /* ← ensures no fixed width forces wrapping */
+      display: inline-block;
+      background: #C17887;
+      color: #000000;
+      padding: 0.8rem 1.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      width: auto;
     }
     .button:hover {
       background: #D67A5C;
@@ -260,7 +259,7 @@
       text-align: center;
     }
 
-    /* Bio section – image inside hackathon-box, no overlap, responsive */
+    /* Bio section */
     .container.center {
       display: flex;
       flex-wrap: wrap;
@@ -486,20 +485,13 @@
       </div>
       <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb130" style="opacity:0" class="hackathon-header">
         <h2 class="mb-20">Candy Terry, Ph.D. – Business Advisor | Strategist</h2>
-        <div class="hackathon-text">With over two decades of experience in operations, leadership, and business strategy, Candy Terry helps businesses refine systems, strengthen leadership, elevate client experience, and create sustainable growth through intentional operational strategy.
-        <br><br>
-        Her experience spans practice growth from the ground up — including operational infrastructure, practice buildouts, multi location expansions, workflow planning, branding, team development, and scalable business systems designed for long-term success.
-        <br><br>
-        What makes Candy different?
-        <br><br>
-        Candy Concepts blends operational intelligence with elevated client experience — combining strategy, leadership, systems, communication, and brand perception into a tailored, white glove, advisory approach designed for sustainable, long-term growth.
-        </div>
+        <div class="hackathon-text">With over two decades of experience in operations, leadership, and business strategy, Candy Terry helps businesses refine systems, strengthen leadership, elevate client experience, and create sustainable growth through intentional operational strategy.<br><br>Her experience spans practice growth from the ground up — including operational infrastructure, practice buildouts, multi location expansions, workflow planning, branding, team development, and scalable business systems designed for long-term success.<br><br>What makes Candy different?<br><br>Candy Concepts blends operational intelligence with elevated client experience — combining strategy, leadership, systems, communication, and brand perception into a tailored, white glove, advisory approach designed for sustainable, long-term growth.</div>
         <div data-w-id="ba0f7c45-392f-87a8-5b55-6eafe33fd236" style="opacity:0" class="bg-circle-gradient-2"></div>
       </div>
     </div>
   </div>
 
-  <!-- Features Section – Clean grid, no absolute positioning, text aligned perfectly -->
+  <!-- Features Section -->
   <section id="features" class="section features">
     <h2 data-w-id="d8074669-33a1-aa9d-5c38-4c53efdbf36c" style="opacity:0" class="mb-220 text-center">Refined Strategy. Real Transformation.</h2>
     <div class="container">
@@ -508,7 +500,7 @@
         <div class="features-card">
           <h3 class="feature-title">Operational Intelligence + Brand Experience</h3>
           <ul class="features-card-list">
-            <div class="grape-community-text">Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
+            <li>Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
             <li>Integrated operational and leadership strategy</li>
             <li>Aligned systems designed for long-term scalability</li>
             <li>A cohesive framework connecting operations, culture, and client experience</li>
@@ -518,7 +510,7 @@
         <div class="features-card">
           <h3 class="feature-title">Tailored Strategy. Intentional Design.</h3>
           <ul class="features-card-list">
-            <div class="grape-community-text">Every engagement is approached through discovery, analysis, and intentional strategy development — designed specifically around your business, leadership style, operational goals, and long-term vision.</li>
+            <li>Every engagement is approached through discovery, analysis, and intentional strategy development — designed specifically around your business, leadership style, operational goals, and long-term vision.</li>
             <li>Customized systems aligned with your team and culture</li>
             <li>Strategic solutions built through collaboration and insight</li>
             <li>Thoughtful implementation designed for sustainable growth</li>
@@ -528,7 +520,7 @@
         <div class="features-card">
           <h3 class="feature-title">Discretion, Precision &amp; Intention</h3>
           <ul class="features-card-list">
-            <div class="grape-community-text">Every business is approached with discretion, precision, and intention because meaningful transformation requires more than systems alone — it requires clarity, trust, and strategic partnership.</li>
+            <li>Every business is approached with discretion, precision, and intention because meaningful transformation requires more than systems alone — it requires clarity, trust, and strategic partnership.</li>
             <li>Confidential, high-touch collaboration</li>
             <li>Precision-focused operational and leadership insight</li>
             <li>Intentional pacing that supports sustainable transformation</li>
@@ -666,9 +658,22 @@
         .style('opacity', 0)
         .transition().delay(300).duration(400).style('opacity', 1);
     }
+    
     $(document).ready(function() {
       drawPieChart();
       $(window).on('resize', function() { setTimeout(drawPieChart, 150); });
+      
+      // FAQ toggle functionality – FIXED
+      $('.faq-question').click(function() {
+        const answer = $(this).next('.faq-answer');
+        const toggle = $(this).find('.faq-toggle');
+        // Close all other answers
+        $('.faq-answer').not(answer).removeClass('active');
+        $('.faq-toggle').not(toggle).removeClass('active');
+        // Toggle current
+        answer.toggleClass('active');
+        toggle.toggleClass('active');
+      });
     });
   </script>
 </body>
