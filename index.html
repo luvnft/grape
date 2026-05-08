@@ -187,49 +187,31 @@
       .faq-question { font-size: 1rem; }
     }
 
-    /* ===== FEATURE CARDS – EXACTLY FROM YOUR WORKING CODE (with fixed list items) ===== */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+    /* ===== FEATURE CARDS – EXACT ORIGINAL WEBFLOW STRUCTURE (no custom overrides) ===== */
+    /* The following classes rely on grape-ape.webflow.css – we only add a fallback for height */
     .features-card {
-      background: rgba(255,255,255,0.03);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.1);
-      height: auto;
-      min-height: 380px;
+      height: auto !important;
+      min-height: 520px;
     }
-    .feature-title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #C17887;
+    .features-card-content-wrapper {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      right: 0;
+      padding: 0 30px;
     }
-    .features-card-list {
-      list-style: disc;
-      padding-left: 1.2rem;
-      color: #c9c9c9;
+    /* Ensure the card background doesn't clip the lifted content */
+    .features-card {
+      overflow: visible !important;
+      margin-top: 100px;         /* create space for the lifted content */
     }
-    .features-card-list li {
-      margin-bottom: 0.5rem;
-      white-space: normal;
-      word-break: break-word;
-    }
-    @media (max-width: 991px) {
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-      }
-    }
+    /* On mobile, reduce the top offset and margin */
     @media (max-width: 767px) {
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
       .features-card {
-        min-height: auto;
+        margin-top: 60px;
+      }
+      .features-card-content-wrapper {
+        top: -60px;
       }
     }
 
@@ -470,7 +452,7 @@
     </div>
   </div>
 
-  <!-- Bio Section (image inside hackathon-box) -->
+  <!-- Bio Section -->
   <div class="section hackthon">
     <div class="container center">
       <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb12f" style="opacity:0" class="hackathon-box">
@@ -485,37 +467,46 @@
     </div>
   </div>
 
-  <!-- Features Section (Three Pillars) – using same structure as your working code -->
+  <!-- Features Section – Restored working Webflow structure (3 cards with content wrapper) -->
   <section id="features" class="section features">
     <h2 data-w-id="d8074669-33a1-aa9d-5c38-4c53efdbf36c" style="opacity:0" class="mb-220 text-center">Refined strategy. Real transformation.</h2>
     <div class="container">
       <div class="w-layout-grid features-grid">
+        <!-- Card 1 -->
         <div id="w-node-a6af4ef7-3ac0-1a54-7bf1-9b820b147d04-d9f06085" data-w-id="a6af4ef7-3ac0-1a54-7bf1-9b820b147d04" style="opacity:0" class="features-card">
-          <h3 class="feature-title">Operational Intelligence + Brand Experience</h3>
-          <ul role="list" class="features-card-list">
-            <li class="mb-20">Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
-            <li>No generic consulting templates</li>
-            <li>No disconnected systems or siloed strategies</li>
-            <li>A unified framework that aligns operations with brand identity</li>
-          </ul>
+          <div class="features-card-content-wrapper">
+            <h3 class="feature-title">Operational Intelligence + Brand Experience</h3>
+            <ul role="list" class="features-card-list w-list-unstyled">
+              <li class="mb-20">Candy Concepts bridges operational intelligence with elevated brand experience — combining structure, leadership, communication, and strategic insight into a tailored advisory approach.</li>
+              <li>No generic consulting templates</li>
+              <li>No disconnected systems or siloed strategies</li>
+              <li>A unified framework that aligns operations with brand identity</li>
+            </ul>
+          </div>
         </div>
+        <!-- Card 2 -->
         <div id="w-node-_442d2486-df89-da3e-43eb-28167c807c66-d9f06085" data-w-id="442d2486-df89-da3e-43eb-28167c807c66" style="opacity:0" class="features-card">
-          <h3 class="feature-title">Rejecting the Generic Consulting Model</h3>
-          <ul role="list" class="features-card-list">
-            <li class="mb-20">No recycled systems. No one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context.</li>
-            <li>No pre-packaged "solutions" copied from other industries</li>
-            <li>No assumptions — only discovery, analysis, and custom design</li>
-            <li>Every system is built around your team, your culture, and your goals</li>
-          </ul>
+          <div class="features-card-content-wrapper">
+            <h3 class="feature-title">Rejecting the Generic Consulting Model</h3>
+            <ul role="list" class="features-card-list w-list-unstyled">
+              <li class="mb-20">No recycled systems. No one-size-fits-all solutions. Every engagement is built from the ground up for your specific business context.</li>
+              <li>No pre-packaged "solutions" copied from other industries</li>
+              <li>No assumptions — only discovery, analysis, and custom design</li>
+              <li>Every system is built around your team, your culture, and your goals</li>
+            </ul>
+          </div>
         </div>
+        <!-- Card 3 -->
         <div id="w-node-_621cd584-e952-8e81-1e12-f71993c45c0e-d9f06085" data-w-id="621cd584-e952-8e81-1e12-f71993c45c0e" style="opacity:0" class="features-card">
-          <h3 class="feature-title">Discretion, Precision &amp; Intention</h3>
-          <ul role="list" class="features-card-list">
-            <li class="mb-20">Every business is approached with discretion, precision, and intention because lasting transformation requires more than a template; it requires a partnership.</li>
-            <li>Strict confidentiality and white‑glove collaboration</li>
-            <li>Surgical precision in identifying inefficiencies and opportunities</li>
-            <li>Intentional pacing that balances momentum with sustainable change</li>
-          </ul>
+          <div class="features-card-content-wrapper">
+            <h3 class="feature-title">Discretion, Precision &amp; Intention</h3>
+            <ul role="list" class="features-card-list w-list-unstyled">
+              <li class="mb-20">Every business is approached with discretion, precision, and intention because lasting transformation requires more than a template; it requires a partnership.</li>
+              <li>Strict confidentiality and white‑glove collaboration</li>
+              <li>Surgical precision in identifying inefficiencies and opportunities</li>
+              <li>Intentional pacing that balances momentum with sustainable change</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
