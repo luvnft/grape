@@ -239,7 +239,7 @@ figcaption {
   margin-bottom: 10px;
   float: none;
   clear: none;
-  font-family: 'Radomir tinkov gilroy', sans-serif;
+  font-family: 'Marcellus', sans-serif;
   font-size: 65px;
   line-height: 60px;
   font-weight: 500;
@@ -283,7 +283,7 @@ figcaption {
   margin-top: 7px;
   padding-top: 0px;
   opacity: 1;
-  font-family: Gilroy, sans-serif;
+  font-family: Marcellus, sans-serif;
   color: #000;
   font-weight: 300;
   background-clip: border-box;
@@ -445,7 +445,7 @@ figcaption {
   padding-bottom: 9px;
   background-color: transparent;
   opacity: 0.57;
-  font-family: 'Radomir tinkov gilroy', sans-serif;
+  font-family: 'Marcellus', sans-serif;
   color: #fff;
   font-size: 12px;
   line-height: 20px;
@@ -465,7 +465,7 @@ figcaption {
 .navigation-item.w--current {
   background-color: transparent;
   opacity: 1;
-  font-family: 'Radomir tinkov gilroy', sans-serif;
+  font-family: 'Marcellus', sans-serif;
   color: #fff;
   font-weight: 600;
 }
@@ -612,7 +612,7 @@ figcaption {
 
 .position-name-text {
   margin-bottom: 10px;
-  font-family: Gilroy, sans-serif;
+  font-family: Marcellus, sans-serif;
   font-size: 40px;
   line-height: 34px;
   font-weight: 700;
@@ -2948,15 +2948,15 @@ figcaption {
 }
 
 @font-face {
-  font-family: 'Gilroy';
+  font-family: 'Marcellus';
   src: url('../fonts/Marcellus-Regular.ttf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Gilroy';
-  src: url('../fonts/Gilroy-Light.otf') format('opentype');
+  font-family: 'Marcellus';
+  src: url('../fonts/Marcellus-regular.ttf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;

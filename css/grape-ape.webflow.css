@@ -16,7 +16,7 @@
     font-size: .99em;
     text-transform: uppercase;
     letter-spacing: .5px;
-    font-family: "Gilroy", sans-serif;
+    font-family: "Marcellus", sans-serif;
   }
   polyline {
     fill: none;
@@ -277,7 +277,7 @@
   li { margin-bottom: 10px; }
   .body {
     background-color: #050814;
-    font-family: Gilroy, sans-serif;
+    font-family: Marcellus, sans-serif;
     color: #fff;
     font-size: 16px;
     font-weight: 300;
@@ -786,6 +786,6 @@ h1, h2, h3,
 
 /* Keep Gilroy for body text, buttons, etc. */
 body, p, li, .button, .nav-link, .grape-community-text, .hackathon-text {
-  font-family: 'Gilroy', system-ui, sans-serif !important;
+  font-family: 'Marcellus', system-ui, sans-serif !important;
 }
 </style>
