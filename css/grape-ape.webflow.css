@@ -16,7 +16,7 @@
     font-size: .99em;
     text-transform: uppercase;
     letter-spacing: .5px;
-    font-family: "Marcellus", sans-serif;
+    font-family: "FuturaCyrillicLight", sans-serif;
   }
   polyline {
     fill: none;
@@ -277,7 +277,7 @@
   li { margin-bottom: 10px; }
   .body {
     background-color: #050814;
-    font-family: Marcellus, sans-serif;
+    font-family: FuturaCyrillicLight, sans-serif;
     color: #fff;
     font-size: 16px;
     font-weight: 300;
@@ -722,8 +722,8 @@
   font-display: swap;
 }
 @font-face {
-  font-family: 'Marcellus';
-  src: url('../fonts/Marcellus-Regular.ttf') format('truetype');
+  font-family: 'FuturaCyrillicLight';
+  src: url('../fonts/FuturaCyrillicLight.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -771,7 +771,7 @@
   font-display: swap;
 }
 
-/* Apply Marcellus to all h1, h2, h3 headings */
+/* Apply FuturaCyrillicLight to all h1, h2, h3 headings */
 h1, h2, h3,
 .hero-heading,
 .community-heading,
@@ -780,12 +780,12 @@ h1, h2, h3,
 .tokenomics h2,
 .faq-title,
 .grape-access-header {
-  font-family: 'Marcellus', 'Georgia', serif !important;
+  font-family: 'FuturaCyrillicLight', 'Georgia', serif !important;
   font-weight: 400 !important;
 }
 
 /* Keep Gilroy for body text, buttons, etc. */
 body, p, li, .button, .nav-link, .grape-community-text, .hackathon-text {
-  font-family: 'Marcellus', system-ui, sans-serif !important;
+  font-family: 'FuturaCyrillicLight', system-ui, sans-serif !important;
 }
 </style>
